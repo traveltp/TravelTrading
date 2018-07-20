@@ -1,0 +1,54 @@
+#form-matter {
+  width: 450px;
+  height: 400px;
+  border: 0.1px solid;
+  border-radius: 10px;
+  padding: 2%;
+  z-index: 10;
+  position: relative;
+  .input-holder {
+    width: 400px;
+    border-bottom: 1px solid #CCC;
+    margin-top: 10px;
+  }
+  input {
+    border: 0;
+    height: 40px;
+    outline: none;
+    width: 87%;
+    padding-left: 30px;
+    -webkit-transition: all 400ms linear;
+    -moz-transition: all 400ms linear;
+    -ms-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    transition: all 400ms linear;
+  }
+  input:focus {
+    outline: 0;
+    border: 0;
+    box-shadow: 0em 8px 4px -4px orange;
+  }
+  .input-holder:focus {
+    box-shadow: 0.1em 2px 7px orange;
+  }
+  .right-side {
+    float: right;
+    margin-top: 13px;
+    color: #777;
+  }
+  .left-side {
+    float: left;
+    margin-top: 13px;
+    color: #777;
+  }
+}
+
+.tranBox {
+  position: absolute;
+  background: black;
+  opacity: 0.7;
+  width: 450px;
+  height: 400px;
+  left: 0px;
+  top: 0px;
+}
