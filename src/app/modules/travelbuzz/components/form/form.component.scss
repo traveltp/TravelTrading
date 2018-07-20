@@ -1,5 +1,5 @@
 #form-matter {
-  width: 450px;
+  width: 400px;
   height: 400px;
   border: 0.1px solid;
   border-radius: 10px;
@@ -7,7 +7,7 @@
   z-index: 10;
   position: relative;
   .input-holder {
-    width: 400px;
+    width: 350px;
     border-bottom: 1px solid #CCC;
     margin-top: 10px;
   }
@@ -22,6 +22,8 @@
     -ms-transition: all 400ms linear;
     -o-transition: all 400ms linear;
     transition: all 400ms linear;
+    background: none;
+    color: #777;
   }
   input:focus {
     outline: 0;
@@ -46,9 +48,9 @@
 .tranBox {
   position: absolute;
   background: black;
-  opacity: 0.7;
-  width: 450px;
-  height: 400px;
+  opacity: 0.5;
+  width: 400px;
+  height: 383px;
   left: 0px;
   top: 0px;
 }
