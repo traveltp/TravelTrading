@@ -1,7 +1,6 @@
 #form-matter {
   width: 400px;
   height: 400px;
-  border: 0.1px solid;
   border-radius: 10px;
   padding: 2%;
   z-index: 10;
@@ -44,7 +43,12 @@
     color: #777;
   }
 }
-
+.form-box {
+  position: relative;
+  right: 0;
+  left: 65em;
+  top: -24em;
+}
 .tranBox {
   position: absolute;
   background: black;
