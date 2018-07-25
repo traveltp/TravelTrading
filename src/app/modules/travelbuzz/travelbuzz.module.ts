@@ -8,6 +8,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import {NgbModule, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { BookmarksHomeComponent } from './components/bookmarks-home/bookmarks-home.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     HttpModule,
     HttpClientModule
   ],
-  declarations: [CardComponent, FiltersComponent, FormComponent, HomeComponent, SliderComponent],
+  declarations: [CardComponent, FiltersComponent, FormComponent, HomeComponent, SliderComponent, BookmarksHomeComponent],
   providers: [NgbCarouselConfig],
   exports: [CardComponent, FiltersComponent, FormComponent, HomeComponent, SliderComponent]
 })
