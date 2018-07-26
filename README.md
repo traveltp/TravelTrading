@@ -28,5 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # tradingPlatform module
 
-For now routing is not yet added so for seeing components in UI for this module please update the app.component.html with the home component selector of the current module.
-e.g in this case: <trading-app-home></trading-app-home>
+For now routing is not yet added so for seeing components in UI for this module please update the app.component.html with the home component selector of the current module, e.g in this case: <trading-app-home></trading-app-home>
