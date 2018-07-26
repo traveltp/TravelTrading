@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { TravelbuzzModule } from './modules/travelbuzz/travelbuzz.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TradingplatformModule } from './modules/tradingplatform/tradingplatform.module';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TradingplatformModule } from './modules/tradingplatform/tradingplatform
     GooglePlaceModule,
     TravelbuzzModule,
     TradingplatformModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

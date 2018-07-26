@@ -5,19 +5,19 @@ import { trigger, state, style, transition,
 import { SlideInOutAnimation, SlideOutInAnimation } from '../../../../../animations';
 
 @Component({
-  selector: 'trading-app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-trading-home',
+  templateUrl: './trading-home.component.html',
+  styleUrls: ['./trading-home.component.scss'],
   animations: [SlideInOutAnimation, SlideOutInAnimation]
 })
-export class HomeComponent implements OnInit {
-
+export class TradingHomeComponent implements OnInit {
   animationState: string = 'in';
   largeLayoutState: string = 'in';
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   toggleElement() {
     var content: any = document.getElementsByClassName('large-layout');
@@ -29,4 +29,5 @@ export class HomeComponent implements OnInit {
       this.largeLayoutState = 'in';
     }
   }
+
 }

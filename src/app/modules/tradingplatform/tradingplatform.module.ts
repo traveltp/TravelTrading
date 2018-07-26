@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TradingHomeComponent } from './components/trading-home/trading-home.component';
 
 @NgModule({
   imports: [
@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule
     
   ],
-  declarations: [HomeComponent],
-  exports: [HomeComponent]
+  declarations: [TradingHomeComponent],
+  exports: [TradingHomeComponent]
 })
 export class TradingplatformModule { }
