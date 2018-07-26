@@ -4,22 +4,22 @@
   background-color: beige;
 }
 .large-layout {
-  width: 100%;
+  width: 70%;
   height: 100%;
   background-color: blue;
 }
 .small-layout {
   position: absolute;
-  width: 29%;
+  width: 30%;
   height: 100%;
   background-color: orange;
   top: 160px;
-  right: 20px;
+  right: 0;
   transition: width 0.2s ease-out;
 }
 .collapsable-div {
   position: absolute;
-  width: 1%;
+  width: 2%;
   height: 100%;
   background-color: brown;
   top: 160px;
