@@ -1,0 +1,42 @@
+.logo-layout {
+  width: 100%;
+  height: 80px;
+  background-color: beige;
+}
+.large-layout {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+}
+.small-layout {
+  position: absolute;
+  width: 29%;
+  height: 100%;
+  background-color: orange;
+  top: 160px;
+  right: 20px;
+  transition: width 0.2s ease-out;
+}
+.collapsable-div {
+  position: absolute;
+  width: 1%;
+  height: 100%;
+  background-color: brown;
+  top: 160px;
+  right: 0;
+}
+.running-div {
+  width: 100%;
+  height: 80px;
+  background-color: green;
+}
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-align: center;
+}

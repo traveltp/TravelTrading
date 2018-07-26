@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="logo-layout">
+    <span>logo space</span>
+  </div>
+  <div class="running-div">
+    <span>running div</span>
+  </div>
+  <div class="large-layout">
+    <span>large space</span>
+  </div>
+  <div class="small-layout" [@slideInOut]="animationState">
+    <span>small space</span>
+  </div>
+  <div class="collapsable-div" (click)="toggleElement()">
+    <span class="text-vertical">Collapser</span>
+  </div>
+  
+</div>
