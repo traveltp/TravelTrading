@@ -8,7 +8,8 @@ import { TravelbuzzModule } from './modules/travelbuzz/travelbuzz.module';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'trading-home', component: TradingHomeComponent }
+  { path: 'trading-home', component: TradingHomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 @NgModule({
   imports: [
