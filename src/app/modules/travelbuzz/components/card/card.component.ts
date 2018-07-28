@@ -12,6 +12,7 @@ export class CardComponent implements OnInit {
 
   card: Object;
   @Input() cardtype: string;
+  @Input() cardDetails;
 
   ngOnInit() {
     class Card {
@@ -21,8 +22,11 @@ export class CardComponent implements OnInit {
         public text: string
       ) { }
     }
-    this.card = new Card('https://placeimg.com/640/480/nature', 'Kangaroo Valley Safari', 'Located two hours south of Sydney in the Southern Highland of New South Wales...');
+    var image: string = this.cardDetails.image;
+    var title: string = this.cardDetails.title;
+    var text: string = this.cardDetails.text;
 
+    this.card = new Card(image, title, text);
   }
 
 }
