@@ -3,25 +3,25 @@
   height: 100%;
   border: 660px solid grey;
 }
+
 @media only screen and (max-width: 1620px) {
-  /deep/
-  .carousel-item {
+  /deep/ .carousel-item {
     max-height: 725px;
   }
 }
+
 @media only screen and (min-width: 1621px) {
-  /deep/
-  .carousel-item {
+  /deep/ .carousel-item {
     max-height: 1321px;
   }
 }
-/deep/
-.carousel-control-prev {
+
+/deep/ .carousel-control-prev {
   bottom: 15em;
   width: 10%;
 }
-/deep/
-.carousel-control-next {
+
+/deep/ .carousel-control-next {
   bottom: 15em;
   width: 10%;
 }

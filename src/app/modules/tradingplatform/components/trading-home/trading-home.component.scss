@@ -10,6 +10,13 @@
   background-size: contain;
 
 }
+
+@media only screen and (max-height: 721px) {
+  .large-layout {
+    height: 600px;
+  }
+}
+
 .large-layout-glass {
   width: 70%;
   height: 79%;

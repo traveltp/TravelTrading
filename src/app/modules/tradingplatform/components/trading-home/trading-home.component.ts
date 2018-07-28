@@ -11,7 +11,7 @@ import { SlideInOutAnimation, SlideOutInAnimation,SlideOutInMinAnimation } from 
   animations: [SlideInOutAnimation, SlideOutInAnimation, SlideOutInMinAnimation]
 })
 export class TradingHomeComponent implements OnInit {
-  animationState: string = 'in';
+  animationState: string = 'out';
   largeLayoutState: string = 'in';
 
   constructor() { }
