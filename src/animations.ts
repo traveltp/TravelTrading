@@ -24,6 +24,7 @@ export const SlideInOutAnimation = [
     )])
 ])
 ]
+
 export const SlideOutInAnimation = [
 trigger('slideOutIn', [
   state('in', style({
@@ -41,6 +42,28 @@ trigger('slideOutIn', [
   transition('out => in', [group([
       animate('400ms ease-in-out', style({
         'width': '100%'
+      })),
+  ]
+  )])
+])
+]
+export const SlideOutInMinAnimation = [
+trigger('slideOutInMin', [
+  state('in', style({
+      'width': '96%'
+  })),
+  state('out', style({
+      'width': '66%'
+  })),
+  transition('in => out', [group([
+      animate('400ms ease-in-out', style({
+        'width': '66%'
+      })),
+  ]
+  )]),
+  transition('out => in', [group([
+      animate('400ms ease-in-out', style({
+        'width': '96%'
       })),
   ]
   )])
