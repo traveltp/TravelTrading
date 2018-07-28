@@ -5,9 +5,39 @@
 }
 .large-layout {
   width: 70%;
-  height: 100%;
-  background-color: blue;
+  height: 800px;
+  overflow: auto;
+  padding: 1em 2em;
+  background-size: contain;
+
 }
+.large-layout-glass {
+  width: 70%;
+  height: 79%;
+  position: absolute;
+  top: 160px;
+
+  .pane {
+    opacity: 0.5;
+    width:48%;
+    height:50%;
+    display:inline-block;
+    border-radius: 10px;
+    margin: 5px;
+  }
+}
+.pane1 {
+      background: rgb(0,94,184);
+    }
+    .pane2 {
+      background: rgb(0,169,224);
+    }
+    .pane3 {
+      background: rgb(206,0,88);
+    }
+    .pane4 {
+      background: rgb(155,202,306);
+    }
 .small-layout {
   position: absolute;
   width: 30%;
@@ -34,6 +64,9 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  background: url('https://www.mckinsey.com/~/media/McKinsey/Industries/Retail/Our%20Insights/Digitization%20The%20next%20stop%20for%20the%20apparel%20sourcing%20caravan/Digitization-The-next-stop-apparel-sourcing%20_1536x1536_200.ashx');
+  background-size: contain;
 }
 .text-vertical {
   writing-mode: vertical-rl;
@@ -44,6 +77,7 @@
   height: 80px;
   max-width: 100%;
   margin: 0 auto;
+  visibility:hidden;
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
@@ -73,7 +107,7 @@
 }
 
 @keyframes moveSlideshow {
-  100% { 
-    transform: translateX(-66.6666%);  
+  100% {
+    transform: translateX(-66.6666%);
   }
 }
