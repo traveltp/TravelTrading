@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit {
       'Authorization': 'Bearer OEW4buy0voNY4LUlXjbw4Qa7zu1Sdi'
     })
    };
-  	this.http.processServerRequest("https://api.predicthq.com/v1/events/?limit=10&location_around.origin=18.912352,72.821922", httpOptions).subscribe(
+  	this.http.processGetRequest("https://api.predicthq.com/v1/events/?limit=10&location_around.origin=18.912352,72.821922", httpOptions).subscribe(
         function(data){
-        	debugger
+        	//primus data here
         }
   		);
   }

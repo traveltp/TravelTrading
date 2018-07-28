@@ -1,0 +1,61 @@
+.locCard {
+	width: 180px;
+	height: 150px;
+	border-radius: 10px;
+	margin: 1px;
+	display: inline-block;
+	z-index: 50;
+
+	.glass {
+		position: relative;
+		top: 0px;
+		background: black;
+		opacity: 0.8;
+		height: 150px;
+		border-radius: 10px;
+	}
+
+	.imageSection {
+		height: 45%;
+		opacity: 0.8;
+		width: 100%;
+		border-radius: 0 0 10px 10px;
+		z-index: 50;
+		position: relative;
+		top: -100px;
+		i {
+			margin:5px;
+		}
+		.title {
+			text-align: center;
+			color: #FFF;
+		}
+		.price {
+			background: yellow;
+			border-radius: 5px;
+			padding: 5px;
+			width: 100%;
+			position:relative;
+			margin:0 auto;
+			font-weight: bold;
+			text-align: center;
+		}
+		.positive {
+			color: green;
+		}
+		.negative {
+			color: red;
+		}
+		.nuetral {
+			color: grey;
+		}
+
+
+	}
+
+	.detailSection {
+		height: 55%;
+		z-index: 50;
+	}
+
+}

@@ -1,0 +1,50 @@
+.filterup {
+	width : 500px;
+	height: 100px;
+	position: relative;
+	margin: 0 auto;
+	z-index: 500;
+}
+.filterHolder {
+	background : #000;
+	opacity: 0.4;
+	width: 100%;
+	height: 100%;
+}
+.filterPanel {
+	background: none;
+	position: absolute;
+	top:0px;
+	left:0px;
+
+	.filter {
+		background: #CCC;
+		width: 80px;
+		height: 80px;
+		opacity: 0.9;
+		margin: 10px;
+		border-radius: 5px;
+		display:inline-block;
+		padding: 15px;
+	}
+}
+
+.filterlabel {
+	content: 'FILTERS';
+	width:fit-content;
+	background: #000;
+	opacity: 0.9;
+	background: white;
+	right: 0;
+	position: absolute;
+	padding: 5px 10px;
+	border-radius: 15px 0;
+	font-weight: bold;
+}
+
+.absoluteTop {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+}

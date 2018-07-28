@@ -1,0 +1,30 @@
+.glass {
+	width: 100%;
+    opacity: 0.8;
+    height: 80px;
+    background: rgb(111,43,141);
+}
+.panel {
+	height: 80px;
+	width: 30%;
+	position: relative;
+	top:-100px;
+	color: #FFF;
+}
+
+input {
+    border: 0;
+    height: 40px;
+    outline: none;
+    width: 90%;
+    padding-left: 15px;
+    background: none;
+    color: #FFF;
+  }
+
+  .input-holder {
+    width: 90%;
+    margin: 40px 10px;
+    background: #000;
+    opacity: 0.5;
+  }

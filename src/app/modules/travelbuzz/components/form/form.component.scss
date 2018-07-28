@@ -1,7 +1,6 @@
 #form-matter {
   width: 400px;
-  height: 400px;
-  border: 0.1px solid;
+  height: 383px;
   border-radius: 10px;
   padding: 2%;
   z-index: 10;
@@ -16,14 +15,14 @@
     height: 40px;
     outline: none;
     width: 87%;
-    padding-left: 30px;
+    padding-left: 15px;
     -webkit-transition: all 400ms linear;
     -moz-transition: all 400ms linear;
     -ms-transition: all 400ms linear;
     -o-transition: all 400ms linear;
     transition: all 400ms linear;
     background: none;
-    color: #777;
+    color: #FFF;
   }
   input:focus {
     outline: 0;
@@ -36,21 +35,28 @@
   .right-side {
     float: right;
     margin-top: 13px;
-    color: #777;
+    color: #FFF;
   }
   .left-side {
     float: left;
     margin-top: 13px;
-    color: #777;
+    color: #FFF;
   }
 }
-
+.form-box {
+  width: 400px;
+  height: 383px;
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+}
 .tranBox {
   position: absolute;
   background: black;
-  opacity: 0.5;
+  opacity: 0.8;
   width: 400px;
   height: 383px;
   left: 0px;
   top: 0px;
+  z-index: 1;
 }
