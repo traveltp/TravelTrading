@@ -53,9 +53,10 @@
 .tranBox {
   position: absolute;
   background: black;
-  opacity: 0.5;
+  opacity: 0.8;
   width: 400px;
   height: 383px;
   left: 0px;
   top: 0px;
+  z-index: 1;
 }
