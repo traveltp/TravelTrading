@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
 import { HttpClient } from "@angular/common/http";
 import { Config } from "../../../../../../node_modules/protractor";
+import { DataService } from '../../../../data.service';
 
 @Component({
   selector: "app-slider",
@@ -31,7 +32,8 @@ export class SliderComponent implements OnInit {
   images: Array<string> = [];
   constructor(
     private ngbCarouselConfig: NgbCarouselConfig,
-    private http: HttpClient
+    private http: HttpClient,
+    private data: DataService
   ) {}
   ngOnInit() {
     setTimeout(() => {
@@ -43,5 +45,13 @@ export class SliderComponent implements OnInit {
     this.photoReferences.forEach(element => {
       this.images.push("https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference=" + element + "&key=AIzaSyATFcxyIdDzqUSvYzIslgAObXz4AhhCJfg");
     });
+
+    this.data.cardDataObserver.subscribe(
+      (card: any) => {
+         if(card != null && card.title != null) {
+           alert(card.title);
+         };
+      }
+    );
   }
 }

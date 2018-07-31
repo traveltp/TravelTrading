@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit {
    };
   	this.http.processGetRequest("https://api.predicthq.com/v1/events/?limit=10&location_around.origin=18.912352,72.821922", httpOptions).subscribe(
         function(data){
-        	//primus data here
+          //primus data here
+          console.log(data);
         }
   		);
   }

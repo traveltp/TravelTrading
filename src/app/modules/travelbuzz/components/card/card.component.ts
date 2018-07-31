@@ -8,7 +8,7 @@ import { DataService } from '../../../../data.service';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
   card: Object;
   @Input() cardtype: string;
@@ -27,6 +27,10 @@ export class CardComponent implements OnInit {
     var text: string = this.cardDetails.text;
 
     this.card = new Card(image, title, text);
+  }
+
+  onClickCard(card: any) {
+    this.data.getCardData(card)
   }
 
 }

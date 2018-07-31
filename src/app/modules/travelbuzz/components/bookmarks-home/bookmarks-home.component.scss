@@ -3,15 +3,13 @@
 }
 .bookmarks-background {
 	width: 100%;
+	display: flex;
+	justify-content: space-around;
 }
 .row-two {
 	float: left;
 	margin-top: 5em;
-	margin-right: 2em;
-	margin-left: 1em;
 }
 .row-three {
 	float: left;
-	margin-right: 3em;
-	margin-left: 1em;
 }

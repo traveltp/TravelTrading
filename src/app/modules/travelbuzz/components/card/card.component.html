@@ -1,5 +1,5 @@
 <!-- Card -->
-<div [ngClass]="cardtype === 'xbig' ? 'card card--xbig' : 'card card--big'">
+<div [ngClass]="cardtype === 'xbig' ? 'card card--xbig' : 'card card--big'" (click)="onClickCard(card)">
   <div class="card__image" [ngStyle]="{'background-image': 'url(' + card.image + ')'}"></div>
   <h2 class="card__title">{{ card.title }}</h2>
   <p class="card__text">{{ card.text }}.</p>
