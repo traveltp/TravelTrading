@@ -24,18 +24,18 @@ export class HomeComponent implements OnInit {
         "https://api.predicthq.com/v1/events/?limit=10&location_around.origin=18.912352,72.821922",
         httpOptions
       )
-      .subscribe(function (data) {
-        console.log(data);
+      .subscribe(function(data) {
+        //console.log(data);
       });
-    //this.getLocation();
+      //this.getLocation();
   }
   getLocation() {
     if (navigator.geolocation) {
       //this.loading = true;
       var that = this;
-      navigator.geolocation.getCurrentPosition(function (position) {
+      navigator.geolocation.getCurrentPosition(function(position) {
         //that.loading = false;
-        console.log(position);
+        //console.log(position);
       });
     }
   }
