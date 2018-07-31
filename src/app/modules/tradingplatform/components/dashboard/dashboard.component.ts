@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  numbers: Array<number>;
+  constructor(private router: Router) {
+    this.numbers = Array(25).fill(1);
+   }
 
   ngOnInit() {
   }
-
+  redirectToGrid() {
+    this.router.navigate(['/trading-grid']);
+  }
 }

@@ -3,6 +3,7 @@ import { trigger, state, style, transition,
   animate, group, query, stagger, keyframes
 } from '@angular/animations';
 import { SlideInOutAnimation, SlideOutInAnimation,SlideOutInMinAnimation } from '../../../../../animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trading-home',
@@ -14,7 +15,7 @@ export class TradingHomeComponent implements OnInit {
   animationState: string = 'out';
   largeLayoutState: string = 'in';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

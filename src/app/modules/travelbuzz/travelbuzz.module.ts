@@ -9,13 +9,15 @@ import {NgbModule, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BookmarksHomeComponent } from './components/bookmarks-home/bookmarks-home.component';
+import { LoadingModule } from 'ngx-loading';
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModule.forRoot(),
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    LoadingModule
   ],
   declarations: [CardComponent, FiltersComponent, FormComponent, HomeComponent, SliderComponent, BookmarksHomeComponent],
   providers: [NgbCarouselConfig],

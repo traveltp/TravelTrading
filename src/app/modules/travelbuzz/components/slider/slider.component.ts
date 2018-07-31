@@ -8,23 +8,10 @@ import { SmoothScrollService } from '../../../smoothscroll/smoothscroll.service'
 @Component({
   selector: "app-slider",
   templateUrl: "./slider.component.html",
-  styleUrls: ["./slider.component.scss"],
-  /*styles: [
-    `
-      /deep/ @media only screen and (max-width: 1620px) {
-        .carousel-item {
-          max-height: 725px;
-        }
-      }
-      /deep/ @media only screen and (min-width: 1621px) {
-        .carousel-item {
-          max-height: 1321px;
-        }
-      }
-    `
-  ]*/
+  styleUrls: ["./slider.component.scss"]
 })
 export class SliderComponent implements OnInit {
+  public loading = false;
   showOverlay: boolean = true;
   source: string = "Bangalore";
   destination: string = "Australia";
@@ -38,8 +25,10 @@ export class SliderComponent implements OnInit {
     private smoothScroll: SmoothScrollService
   ) { }
   ngOnInit() {
+    this.loading = true;
     setTimeout(() => {
       this.showOverlay = false;
+      this.loading = false;
     }, 1500);
     this.ngbCarouselConfig.keyboard = true;
     this.ngbCarouselConfig.interval = 0;
