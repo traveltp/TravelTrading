@@ -3,6 +3,7 @@ import { NgbCarouselConfig } from "@ng-bootstrap/ng-bootstrap";
 import { HttpClient } from "@angular/common/http";
 import { Config } from "../../../../../../node_modules/protractor";
 import { DataService } from '../../../../data.service';
+import { SmoothScrollService } from '../../../smoothscroll/smoothscroll.service'
 
 @Component({
   selector: "app-slider",
@@ -33,8 +34,9 @@ export class SliderComponent implements OnInit {
   constructor(
     private ngbCarouselConfig: NgbCarouselConfig,
     private http: HttpClient,
-    private data: DataService
-  ) {}
+    private data: DataService,
+    private smoothScroll: SmoothScrollService
+  ) { }
   ngOnInit() {
     setTimeout(() => {
       this.showOverlay = false;
@@ -48,9 +50,10 @@ export class SliderComponent implements OnInit {
 
     this.data.cardDataObserver.subscribe(
       (card: any) => {
-         if(card != null && card.title != null) {
-           alert(card.title);
-         };
+        if (card != null && card.title != null) {
+          this.smoothScroll.smoothScrollToTop();
+          this.destination = card.title;
+        };
       }
     );
   }
