@@ -13,18 +13,90 @@ export class BookmarksHomeComponent implements OnInit {
 
   ngOnInit() {
 
-    const cardsMockData: any = [
-      { image: "https://placeimg.com/640/480/nature", title: 'Location 1', text: "Put Location 1 Details here" },
-      { image: "https://placeimg.com/640/480/architecture", title: 'Location 2', text: "Put Location 2 Details here" },
-      { image: "https://placeimg.com/640/480/animals", title: 'Location 3', text: "Put Location 3 Details here" },
-      { image: "https://placeimg.com/640/480/people", title: 'Location 4', text: "Put Location 4 Details here" },
-      { image: "https://placeimg.com/640/480/tech", title: 'Location 5', text: "Put Location 5 Details here" },
-      { image: "https://placeimg.com/640/480/grayscale", title: 'Location 6', text: "Put Location 6 Details here" },
-      { image: "https://placeimg.com/640/480/sepia", title: 'Location 7', text: "Put Location 7 Details here" },
-      { image: "https://placeimg.com/640/480/any", title: 'Location 8', text: "Put Location 8 Details here" },
-      { image: "https://placeimg.com/640/640/any", title: 'Location 9', text: "Put Location 9 Details here" },
-      { image: "https://placeimg.com/640/500/any", title: 'Location 10', text: "Put Location 10 Details here" }
-    ];
+    // Mock data to fill the bookmarks home page
+    const cardsMockData: any =
+      [
+        {
+          latitude: "12.9716",
+          longitude: "77.5946",
+          category: "festivals",
+          image: "assets/images/bangalore_festivals.jpg",
+          title: 'Bangalore - Festivals',
+          text: "Click here to view all the latest Festivals in Bangalore"
+        },
+        {
+          latitude: "12.9716",
+          longitude: "77.5946",
+          category: "concerts",
+          image: "assets/images/bangalore_concerts.jpg",
+          title: 'Bangalore - Concerts',
+          text: "Click here to view all the latest Concerts in Bangalore"
+        },
+        {
+          latitude: "12.9716",
+          longitude: "77.5946",
+          category: "sports",
+          image: "assets/images/bangalore_sports.jpg",
+          title: 'Bangalore - Sports',
+          text: "Click here to view all the latest Sports in Bangalore"
+        },
+        {
+          latitude: "51.5074",
+          longitude: "0.1278",
+          category: "concerts",
+          image: "assets/images/london_concerts.jpg",
+          title: 'London - Concerts',
+          text: "Click here to view all the latest Concerts in London"
+        },
+        {
+          latitude: "51.5074",
+          longitude: "0.1278",
+          category: "festivals",
+          image: "assets/images/london_festivals.jpg",
+          title: 'London - Festivals',
+          text: "Click here to view all the latest Festivals in London"
+        },
+        {
+          latitude: "48.8566",
+          longitude: "2.3522",
+          category: "sports",
+          image: "assets/images/paris_sports.jpg",
+          title: 'Paris - Sports',
+          text: "Click here to view all the latest Sports in Paris"
+        },
+        {
+          latitude: "48.8566",
+          longitude: "2.3522",
+          category: "festivals",
+          image: "assets/images/paris_festivals.jpg",
+          title: 'Paris - Festivals',
+          text: "Click here to view all the latest Festivals in Paris"
+        },
+        {
+          latitude: "48.8566",
+          longitude: "2.3522",
+          category: "concerts",
+          image: "assets/images/paris_concerts.jpg",
+          title: 'Paris - Concerts',
+          text: "Click here to view all the latest Concerts in Paris"
+        },
+        {
+          latitude: "50.1109",
+          longitude: "8.6821",
+          category: "festivals",
+          image: "assets/images/frankfurt_festivals.jpg",
+          title: 'Frankfurt - Festivals',
+          text: "Click here to view all the latest Festivals in Frankfurt"
+        },
+        {
+          latitude: "50.1109",
+          longitude: "8.6821",
+          category: "concerts",
+          image: "assets/images/frankfurt_concerts.jpg",
+          title: 'Frankfurt - Concerts',
+          text: "Click here to view all the latest Concerts in Frankfurt"
+        }
+      ];
 
     this.cardList = cardsMockData;
   }

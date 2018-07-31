@@ -9,7 +9,7 @@ import { HttpHeaders } from "@angular/common/http";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  constructor(private http: HTTPService) {}
+  constructor(private http: HTTPService) { }
   public loading = false;
 
   ngOnInit() {
@@ -24,16 +24,16 @@ export class HomeComponent implements OnInit {
         "https://api.predicthq.com/v1/events/?limit=10&location_around.origin=18.912352,72.821922",
         httpOptions
       )
-      .subscribe(function(data) {
+      .subscribe(function (data) {
         console.log(data);
       });
-      //this.getLocation();
+    //this.getLocation();
   }
   getLocation() {
     if (navigator.geolocation) {
       //this.loading = true;
       var that = this;
-      navigator.geolocation.getCurrentPosition(function(position) {
+      navigator.geolocation.getCurrentPosition(function (position) {
         //that.loading = false;
         console.log(position);
       });

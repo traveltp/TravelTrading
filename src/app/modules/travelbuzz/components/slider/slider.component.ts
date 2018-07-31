@@ -37,11 +37,27 @@ export class SliderComponent implements OnInit {
       this.images.push("https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference=" + element + "&key=AIzaSyATFcxyIdDzqUSvYzIslgAObXz4AhhCJfg");
     });
 
+    // Listens for card click events from bookmarks home page
     this.data.cardDataObserver.subscribe(
       (card: any) => {
         if (card != null && card.title != null) {
           this.smoothScroll.smoothScrollToTop();
           this.destination = card.title;
+
+          // Send details from the clicked card
+          var latitude: string = card.latitude;
+          var longitude: string = card.longitude;
+          var category: string = card.category;
+
+          // Gets the events from predictHQ based on the card details
+          this.data.getEvents(latitude, longitude, category).subscribe(
+            (data: any) => {
+              console.log(data);
+            },
+            error => {
+              console.log(error);
+            }
+          );
         };
       }
     );
