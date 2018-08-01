@@ -5,11 +5,12 @@ import { FiltersComponent } from './components/filters/filters.component';
 import { FormComponent } from './components/form/form.component';
 import { HomeComponent } from './components/home/home.component';
 import { SliderComponent } from './components/slider/slider.component';
-import {NgbModule, NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule, NgbCarouselConfig, NgbCarousel} from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BookmarksHomeComponent } from './components/bookmarks-home/bookmarks-home.component';
 import { LoadingModule } from 'ngx-loading';
+
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { LoadingModule } from 'ngx-loading';
     LoadingModule
   ],
   declarations: [CardComponent, FiltersComponent, FormComponent, HomeComponent, SliderComponent, BookmarksHomeComponent],
-  providers: [NgbCarouselConfig],
+  providers: [NgbCarouselConfig, NgbCarousel],
   exports: [CardComponent, FiltersComponent, FormComponent, HomeComponent, SliderComponent]
 })
 export class TravelbuzzModule { }

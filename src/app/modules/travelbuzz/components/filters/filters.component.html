@@ -1,4 +1,4 @@
-<div class="absoluteTop">
+<div [@filterSlideOut]="filterState" class="absoluteTop">
 	<div class="filterup">
 		<div class="filterHolder">
 		</div>
@@ -19,7 +19,7 @@
 				<i class="fa fa-briefcase fa-3x"></i>
 			</div>
 		</div>
-		<div class="filterlabel">
+		<div class="filterlabel" (click)="toggleFilter()">
 			Filters
 		</div>
 	</div>
