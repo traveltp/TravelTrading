@@ -1,25 +1,17 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 <div [@filterSlideOut]="filterState" class="absoluteTop">
 	<div class="filterup">
 		<div class="filterHolder">
 		</div>
 		<div class="filterPanel expanded">
-			<div class="filter">
-				<i class="fa fa-envelope fa-3x"></i>
-			</div>
-			<div class="filter">
-				<i class="fa fa-users fa-3x"></i>
-			</div>
-			<div class="filter">
-				<i class="fa fa-shopping-cart fa-3x"></i>
-			</div>
-			<div class="filter">
-				<i class="fa fa-briefcase fa-3x"></i>
-			</div>
-			<div class="filter">
-				<i class="fa fa-briefcase fa-3x"></i>
+			<div *ngFor="let filter of filters" class="filter" (click)="toggleFilter(filter.category)">
+				<i [class]="filter.class"></i>
+				<div style="display: flex; justify-content: space-around">
+						<div class="filter-text">{{filter.category}}</div>
+				</div>
 			</div>
 		</div>
-		<div class="filterlabel" (click)="toggleFilter()">
+		<div class="filterlabel" (click)="toggleFilterPanel()">
 			Filters
 		</div>
 	</div>

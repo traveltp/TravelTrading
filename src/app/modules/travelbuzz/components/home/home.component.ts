@@ -10,36 +10,42 @@ import { DataService } from "../../../../data.service";
 })
 export class HomeComponent implements OnInit {
   constructor(private http: HTTPService, private data: DataService) {}
-  public loading = false;
-  public httpOptions:any;
+  public loading: boolean = false;
+  public showFilters: boolean = false;
+  public selectedLocation: any = {};
 
   ngOnInit() {
-    this.httpOptions = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json",
-        Authorization: "Bearer OEW4buy0voNY4LUlXjbw4Qa7zu1Sdi"
-      })
-    };
     this.getCurrentLocation();
   }
+  
   // get user's current location
   getCurrentLocation() {
     if (navigator.geolocation) {
       this.loading = true;
       navigator.geolocation.getCurrentPosition(position => {
-        var latitude: string = String(position.coords.latitude);
-        var longitude: string = String(position.coords.longitude);
-        var category: string = "sports";
-        this.data.getEvents(latitude, longitude, category).subscribe(
-          (data: any) => {
-            console.log(data);
-            this.loading = false;
-          },
-          error => {
-            console.log(error);
-            this.loading = false;
-          }
-        );
+        this.selectedLocation = {
+          latitude: String(position.coords.latitude),
+          longitude: String(position.coords.longitude),
+          category: "sports"
+        };
+        this.showFilters = true;
+        // get events from predict HQ for current location
+        this.data
+          .getEvents(
+            this.selectedLocation.latitude,
+            this.selectedLocation.longitude,
+            this.selectedLocation.category
+          )
+          .subscribe(
+            (data: any) => {
+              console.log(data);
+              this.loading = false;
+            },
+            error => {
+              console.log(error);
+              this.loading = false;
+            }
+          );
       });
     }
   }
