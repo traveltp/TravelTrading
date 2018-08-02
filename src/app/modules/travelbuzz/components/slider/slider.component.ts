@@ -11,16 +11,17 @@ import { GoogleCustomSearchService } from "../../../providers/google-custom-sear
   styleUrls: ["./slider.component.scss"]
 })
 export class SliderComponent implements OnInit {
+  
   public loading = false;
   showOverlay: boolean = true;
-  source: string = "Bangalore";
+  source: string = "Current Location";
   destination: string = "Australia";
   // take images only with height greater than 700px
   photoReferences: Array<string>;
   images: Array<any>;
   constructor(
     private ngbCarouselConfig: NgbCarouselConfig,
-    @ViewChild("carousel") private ngbCarousel: NgbCarousel,
+    @ViewChild("myCarousel") public myCarousel: NgbCarousel,
     private http: HTTPService,
     private data: DataService,
     private smoothScroll: SmoothScrollService,
@@ -44,14 +45,18 @@ export class SliderComponent implements OnInit {
       }
     });
   }
+
+  // initial overlay till the original image loads
   createInitialOverlay() {
     this.loading = true;
   }
+  // configuration for ngb carousel
   configureCarousel() {
     this.ngbCarouselConfig.keyboard = true;
     this.ngbCarouselConfig.interval = 0;
     this.ngbCarouselConfig.pauseOnHover = true;
   }
+  // create image data for carousel
   createCarouselImage() {
     /*this.googleCustomSearch.getPhotos("Art for Concern - Masters of Today and Tomorrow").subscribe((data: any) => {
       console.log(data);
@@ -93,10 +98,8 @@ export class SliderComponent implements OnInit {
         var latitude: string = card.latitude;
         var longitude: string = card.longitude;
         var category: string = card.category;
-        console.log(this.images);
 
         var activeImage:any;
-
         this.images.forEach(image => {
           if (image.id === '1') {
             activeImage = image;

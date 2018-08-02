@@ -125,7 +125,7 @@ export const FilterSlideOutAnimation = [
     state(
       "in",
       style({
-        top: "-99px"
+        top: "-100px"
       })
     ),
     state(
@@ -149,7 +149,7 @@ export const FilterSlideOutAnimation = [
         animate(
           "400ms ease-in-out",
           style({
-            top: "-99px"
+            top: "-100px"
           })
         )
       ])

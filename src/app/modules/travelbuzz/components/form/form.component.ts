@@ -19,7 +19,7 @@ export class FormComponent implements OnInit {
   field3 = {'name':'Email','type':'text','iconSide':'left-side','icon':'fa fa-envelope'};
   field4 = {'name':'Date','type':'select','iconSide':'left-side','icon':'fa fa-calendar'};
   field5 = {'name':'Pax','type':'select','iconSide':'left-side','icon':'fa fa-users'};
-  field6 = {'name':'Mode of Travel','type':'select','iconSide':'left-side','icon':'fa fa-plane'};
+  field6 = {'name':'Preferences','type':'select','iconSide':'left-side','icon':'fa fa-plane'};
   constructor() { }
 
   ngOnInit() {
