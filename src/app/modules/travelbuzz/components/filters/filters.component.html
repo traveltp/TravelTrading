@@ -5,7 +5,7 @@
 		</div>
 		<div class="filterPanel expanded">
 			<div *ngFor="let filter of filters" class="filter" (click)="toggleFilter(filter.category)" [ngClass]="{'selected-filter': filter.category===selectedCategory}">
-				<i [class]="filter.class"></i>
+				<div [class]="filter.class"></div>
 				<div style="display: flex; justify-content: space-around">
 						<div class="filter-text">{{filter.category}}</div>
 				</div>

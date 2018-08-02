@@ -23,14 +23,14 @@ export class FiltersComponent implements OnInit {
   public filters: any;
   public selectedCategory: string;
   public loading: boolean = false;
-  
+
   constructor(private data: DataService) {
     this.filters = [
-      { category: "sports", class: "fa fa-envelope fa-2x" },
-      { category: "expos", class: "fa fa-users fa-2x" },
-      { category: "concerts", class: "fa fa-shopping-cart fa-2x" },
-      { category: "festivals", class: "fa fa-briefcase fa-2x" },
-      { category: "conferences", class: "fa fa-envelope fa-2x" }
+      { category: "sports", class: "sports" },
+      { category: "expos", class: "expos" },
+      { category: "concerts", class: "concerts" },
+      { category: "festivals", class: "festivals" },
+      { category: "conferences", class: "conferences" }
     ];
   }
 

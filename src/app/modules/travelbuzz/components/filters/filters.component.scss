@@ -20,7 +20,7 @@
 	.filter {
 		background: #CCC;
 		width: 80px;
-		height: 80px;
+		height: 75px;
 		opacity: 0.8;
 		margin: 10px;
 		border-radius: 5px;
@@ -65,4 +65,49 @@
 .filter-text {
 	font-size: 12px;
 	text-transform: capitalize;
+}
+.festivals {
+	background-image: url(https://png.icons8.com/material/50/000000/party-baloons.png);
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 10px;
+}
+.concerts {
+	background-image: url(https://png.icons8.com/ios/50/000000/international-music.png);
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 9px;
+}
+.sports {
+	background-image: url(https://png.icons8.com/material/50/000000/football.png);
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 10px;
+}
+.expos {
+	background-image: url(https://png.icons8.com/material/50/000000/briefcase.png);
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 9px;
+}
+.conferences {
+	background-image: url(https://png.icons8.com/material/50/000000/groups.png);
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 10px;
 }
