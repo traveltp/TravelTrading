@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild, Input } from "@angular/core";
 import { NgbCarouselConfig, NgbCarousel } from "@ng-bootstrap/ng-bootstrap";
 import { DataService } from "../../../../data.service";
 import { SmoothScrollService } from "../../../smoothscroll/smoothscroll.service";
@@ -14,8 +14,9 @@ export class SliderComponent implements OnInit {
   
   public loading = false;
   showOverlay: boolean = true;
-  source: string = "Current Location";
-  destination: string = "Australia";
+  @Input()source: string = "Current Location";
+  @Input()destination: string = "Australia";
+  //destination: string = "Australia";
   // take images only with height greater than 700px
   photoReferences: Array<string>;
   images: Array<any>;

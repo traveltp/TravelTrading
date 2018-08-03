@@ -30,8 +30,8 @@ export class DataService {
    * @return Observable<any> contains data of events based on input params
    */
   getEvents(latitude: string, longitude: string, category: string): Observable<any> {
-    var urlRequest: string = "https://api.predicthq.com/v1/events/?limit=10&location_around.origin=" + latitude + "," + longitude + "&category=" + category;
-
+    //var urlRequest: string = "https://api.predicthq.com/v1/events/?limit=10&location_around.origin=" + latitude + "," + longitude + "&category=" + category;
+    var urlRequest: string = "https://api.predicthq.com/v1/events/?limit=10&within=20km@" + latitude + "," + longitude + "&category=" + category;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   public loading: boolean = false;
   public showFilters: boolean = false;
   public selectedLocation: any = {};
+  public source: string;
+  public destination: string;
 
   ngOnInit() {
     this.getCurrentLocation();
@@ -23,6 +25,8 @@ export class HomeComponent implements OnInit {
     if (navigator.geolocation) {
       this.loading = true;
       navigator.geolocation.getCurrentPosition(position => {
+        this.source = "Current Location";
+        this.destination = "";
         this.selectedLocation = {
           latitude: String(position.coords.latitude),
           longitude: String(position.coords.longitude),
