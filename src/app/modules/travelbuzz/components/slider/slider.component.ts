@@ -39,12 +39,12 @@ export class SliderComponent implements OnInit {
     this.createInitialOverlay();
     this.configureCarousel();
     this.createCarouselImage();
-    this.data.cardDataObserver.subscribe((card: any) => {
-      if (card != null && card.title != null) {
-        this.smoothScroll.smoothScrollToTop();
-        this.destination = card.title;
-      }
-    });
+    // this.data.cardDataObserver.subscribe((card: any) => {
+    //   if (card != null && card.title != null) {
+    //     this.smoothScroll.smoothScrollToTop();
+    //     this.destination = card.title;
+    //   }
+    // });
   }
 
   // initial overlay till the original image loads
@@ -128,6 +128,7 @@ export class SliderComponent implements OnInit {
         this.data.getEvents(latitude, longitude, category).subscribe(
           (data: any) => {
             console.log(data);
+            this.images = this.data.buildCarouselImageDataFromPredictHQEventsResponse(data);
           },
           error => {
             console.log(error);

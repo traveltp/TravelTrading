@@ -31,7 +31,7 @@ export class DataService {
    */
   getEvents(latitude: string, longitude: string, category: string): Observable<any> {
     //var urlRequest: string = "https://api.predicthq.com/v1/events/?limit=10&location_around.origin=" + latitude + "," + longitude + "&category=" + category;
-    var urlRequest: string = "https://api.predicthq.com/v1/events/?limit=10&within=20km@" + latitude + "," + longitude + "&category=" + category;
+    var urlRequest: string = "https://api.predicthq.com/v1/events/?limit=5&within=20km@" + latitude + "," + longitude + "&category=" + category;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -40,5 +40,33 @@ export class DataService {
     };
 
     return this.http.processGetRequest(urlRequest, httpOptions);
+  }
+
+  /* 
+ * Function to build Carousel Image Data From PredictHQ Events Response
+ * @param any data
+ * @return Array<any> images contains Carousel Image Data
+ */
+  buildCarouselImageDataFromPredictHQEventsResponse(data: any): any {
+    var images: Array<any> = [];
+
+    if (data != null && data.results != null && data.results.length > 0) {
+      for (var i = 0; i < data.results.length; i++) {
+        var image: any = {};
+        var result: any = data.results[i];
+
+        image.id = i + 1;
+        image.imageUrl = "assets/images/" + result.category + "/" + image.id + ".jpg";
+        image.captionHeading = result.title;
+        image.captionDetail = result.description;
+        image.start = result.start;
+        image.end = result.end;
+        image.category = result.category;
+        image.countryCode = result.country;
+        image.duration = result.duration;
+        images.push(image);
+      }
+    }
+    return images;
   }
 }
