@@ -12,11 +12,13 @@ import { GoogleCustomSearchService } from "../../../providers/google-custom-sear
 })
 export class SliderComponent implements OnInit {
   public loading = true;
-  @Input() source: string = "Current Location";
+  @Input() source: string;
   @Input() destination: string = "Australia";
   @Input() eventData: any;
   public selectedLocation: any;
   public showOverlay: boolean = true;
+  public startDate: string;
+  public endDate: string;
   category: string;
   //destination: string = "Australia";
   // take images only with height greater than 700px
@@ -30,11 +32,7 @@ export class SliderComponent implements OnInit {
     private smoothScroll: SmoothScrollService,
     private googleCustomSearch: GoogleCustomSearchService
   ) {
-    /*this.photoReferences = [
-      "CmRaAAAA3rYhFzi02Fojy2P3mssBf1bvxIyg7YvF8W-8NdMqNqQoMlTGW6N_nTrLZzB47RZSnQFmt24HLZGFjhopeX1btve7So09ubukWxWQKROOGaZSNTL4JdC_Hdvm4Tn5njHxEhCj7pyKTSceknLXsstVuXqyGhQq3F7Dfko__bzsSWLhd8Yj8sZnDg",
-      "CmRaAAAAqjmxkXmbu-CiZCniyDS8epaJUubqGfx5e6iPveVftJ16zzUqnqAlY3WgwyHV7lvMvqJDnURhyqWF9KRcHqqAt47mft4IVmpEOIuRDFO2W2Jp_tD9PkE7cgqrcmul3iFqEhC0uOkpdXlBppIZWNVvgKi1GhS-s0Hr7sCZQ5FMpG837ViNwF2aVw",
-      "CmRaAAAAKAf2yiLo1eieJ2u2-LEWoxbAOw2DnIYzDQxGXTV9_IqNAsnH1e8gCbv3Xv4qqBDgEi2MG7T1vjJEs9XpNgeBibRDdu5quSXHKKYVh4v4ZjXGXQaVq6XtRMTRJs4Ah9g1EhDVBGmLpTYv9dzRdno6QQmcGhQgym445NmosDt0MdU0nZkHechGuA"
-    ];*/
+
     this.images = [];
   }
   ngOnInit() {
@@ -63,6 +61,40 @@ export class SliderComponent implements OnInit {
       longitude: '77.580643',
       category: "sports"
     };
+  }
+
+  submitInterest(category) {
+    var activeImageId: any;
+    var startDate: string;
+    var endDate: string;
+    var activeElements:any = document.getElementsByClassName('active ng-star-inserted');
+    for (let index = 0; index < activeElements.length; index++) {
+      if (activeElements[index].localName === 'li') {
+        activeImageId = activeElements[index].id;
+      }
+    }
+    this.startDate = this.images[category][activeImageId].data.start.split("T")[0];
+    this.endDate = this.images[category][activeImageId].data.end.split("T")[0];
+    var placeLocation = this.images[category][activeImageId].data.location;
+    this.destination = this.images[category][activeImageId].data.title;
+    var placeId = this.images[category][activeImageId].data.place_hierarchies[0][5];
+    this.data.getPlace(placeId).subscribe(
+      (data: any) => {
+        var formData = {
+          start: this.startDate,
+          end: this.endDate,
+          location: placeLocation,
+          destination: this.destination,
+          city: data.results[0].county.split(" ")[0],
+          country: data.results[0].country
+        }
+        this.data.getCardData(formData);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    
   }
   // create image data for carousel
   createCarouselImage() {
@@ -101,6 +133,7 @@ export class SliderComponent implements OnInit {
           }
           this.loading = false;
           this.showOverlay = false;
+          this.source = "Current Location";
         },
         error => {
           console.log(error);

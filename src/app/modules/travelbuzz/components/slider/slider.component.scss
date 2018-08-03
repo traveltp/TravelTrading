@@ -41,3 +41,38 @@
   height: 100%;
   border: 660px solid grey;
 }
+.button2 {
+  //background-color: white; 
+  //color: black; 
+  //border: 2px solid #008CBA;
+  opacity: 0.8;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+  opacity: 1;
+}
+.button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 33px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 9px;
+  margin-left: 9px;
+  -webkit-transition-duration: 0.3s; /* Safari */
+  transition-duration: 0.3s;
+  cursor: pointer;
+  width: 350px;
+  outline: none;
+  border-radius: 0.313em;
+}
+.material-interest-button {
+  position: absolute;
+  left: 21em;
+  bottom: 8em;
+}

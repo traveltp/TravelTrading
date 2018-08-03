@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { HTTPService } from "../../../providers";
-import { HttpClient } from "../../../../../../node_modules/@angular/common/http";
+import { DataService } from "../../../../data.service";
 
 @Component({
   selector: "app-form",
@@ -8,16 +8,17 @@ import { HttpClient } from "../../../../../../node_modules/@angular/common/http"
   styleUrls: ["./form.component.scss"]
 })
 export class FormComponent implements OnInit {
-  @Input() source: string = "";
+  @Input() source: string;
   @Input() destination: string = "";
   @Input() destinationCity: string = "London";
-  @Input() email: string = "ankursinghal@gmail.com";
-  @Input() fromDate: string = "2018-08-03";
-  @Input() toDate: string = "2018-08-05";
+  @Input() email: string;
+  @Input() startDate: string = "2018-08-03";
+  @Input() endDate: string = "2018-08-05";
   @Input() pax: string;
   @Input() modeOfTravel: string;
   @Input() country: string = "India";
   public loading: boolean = false;
+  public placeLocation: Array<string>;
 
   field1 = {
     name: "Source",
@@ -32,57 +33,64 @@ export class FormComponent implements OnInit {
     icon: "fa fa-search"
   };
   field3 = {
-    name: "Destination City",
-    type: "text",
-    iconSide: "left-side",
-    icon: "fa fa-building"
-  };
-  field4 = {
     name: "Email",
     type: "text",
     iconSide: "left-side",
     icon: "fa fa-envelope"
   };
-  field5 = {
+  field4 = {
     name: "Date",
     type: "select",
     iconSide: "left-side",
     icon: "fa fa-calendar"
   };
-  field6 = {
+  field5 = {
     name: "Pax",
     type: "select",
     iconSide: "left-side",
     icon: "fa fa-users"
   };
-  field7 = {
+  field6 = {
     name: "Preferences",
     type: "select",
     iconSide: "left-side",
     icon: "fa fa-plane"
   };
-  constructor(private http: HTTPService) {}
+  constructor(private http: HTTPService, private data: DataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.source);
+    this.data.dataObserver.subscribe((data: any) => {
+      if (data != null && data.location != null) {
+        this.startDate = data.start;
+        this.endDate = data.end;
+        this.placeLocation = data.location;
+        this.destination = data.destination;
+        this.destinationCity = data.city;
+        this.country = data.country;
+      }
+    });
+  }
 
   submitInterest() {
+    console.log(this.email);
     this.loading = true;
     this.http.processPostRequest("http://localhost:4000/interest/postInterest", {
       source: {
         name: "Bengaluru",
-        lat: "12.9437181",
-        long: "77.6910817",
+        lat: "12.972442",
+        long: "77.580643",
         country: "India"
       },
       destination: {
         name: this.destinationCity,
-        lat: "12.971599",
-        long: "77.594563",
-        country: "Europe"
+        lat: this.placeLocation[1],
+        long: this.placeLocation[0],
+        country: this.country
       },
       email: this.email,
-      fromDate: this.fromDate,
-      toDate: this.toDate,
+      fromDate: this.startDate,
+      toDate: this.endDate,
       status: 0,
     }, "")
       .subscribe(

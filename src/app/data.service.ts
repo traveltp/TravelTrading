@@ -41,6 +41,22 @@ export class DataService {
 
     return this.http.processGetRequest(urlRequest, httpOptions);
   }
+  /* 
+   * Function to get place based on id
+   * @param string id
+   * @return Observable<any> contains data of events based on input params
+   */
+  getPlace(id:string): Observable<any> {
+    var urlRequest: string = "https://api.predicthq.com/v1/places/?id=" + id;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer OEW4buy0voNY4LUlXjbw4Qa7zu1Sdi'
+      })
+    };
+
+    return this.http.processGetRequest(urlRequest, httpOptions);
+  }
 
   /* 
  * Function to build Carousel Image Data From PredictHQ Events Response
@@ -55,14 +71,15 @@ export class DataService {
       for (var i = 0; i < data.results.length; i++) {
         var image: any = {};
         var result: any = data.results[i];
-        image.id = i + 1;
-        image.imageUrl = "assets/images/" + result.category + "/" + image.id + ".jpg";
+        image.id = i;
+        image.imageUrl = "assets/images/" + result.category + "/" + (i+1) + ".jpg";
         image.captionHeading = result.title;
         //image.captionDetail = result.description;
         image.start = result.start;
         image.end = result.end;
         image.countryCode = result.country;
         image.duration = result.duration;
+        image.data = data.results[i];
         images[result.category].push(image);
         images['category'] = result.category;
       }

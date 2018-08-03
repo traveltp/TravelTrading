@@ -1,11 +1,14 @@
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 <div *ngIf="showOverlay" class="background-overlay">
-  <app-form [source]="source"></app-form>
+  <app-form [source]="source" [startDate]="startDate" [endDate]="endDate"></app-form>
 </div>
 <app-filters [selectedLocation]="selectedLocation"></app-filters>
 <div>
   <ngb-carousel *ngIf="images" style="width: 100%; height: 100%" #myCarousel="ngbCarousel">
     <ng-template [id]="image.id" *ngFor="let image of images[category]" ngbSlide>
+        <div class="material-interest-button">
+            <button class="button button2" (click)="submitInterest(category)">Submit Interest</button>
+        </div>
       <app-form [source]="source" [destination]="destination"></app-form>
       <div class="image-setter" [ngStyle]="{'background-image': 'url(' + image.imageUrl + ')'}"></div>
       <div class="carousel-caption">

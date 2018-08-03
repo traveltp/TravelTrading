@@ -11,6 +11,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BookmarksHomeComponent } from './components/bookmarks-home/bookmarks-home.component';
 import { LoadingModule } from 'ngx-loading';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     HttpModule,
     HttpClientModule,
     LoadingModule,
-    GooglePlaceModule
+    GooglePlaceModule,
+    FormsModule
   ],
   declarations: [CardComponent, FiltersComponent, FormComponent, HomeComponent, SliderComponent, BookmarksHomeComponent],
   providers: [NgbCarouselConfig, NgbCarousel],
