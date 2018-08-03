@@ -20,7 +20,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "12.9716",
           longitude: "77.5946",
           category: "festivals",
-          image: "assets/images/bangalore_festivals.jpg",
+          image: "assets/images/bookmarks/bangalore_festivals.jpg",
           title: 'Bangalore - Festivals',
           text: "Click here to view all the upcoming Festivals in Bangalore"
         },
@@ -28,7 +28,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "12.9716",
           longitude: "77.5946",
           category: "concerts",
-          image: "assets/images/bangalore_concerts.jpg",
+          image: "assets/images/bookmarks/bangalore_concerts.jpg",
           title: 'Bangalore - Concerts',
           text: "Click here to view all the upcoming Concerts in Bangalore"
         },
@@ -36,7 +36,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "12.9716",
           longitude: "77.5946",
           category: "sports",
-          image: "assets/images/bangalore_sports.jpg",
+          image: "assets/images/bookmarks/bangalore_sports.jpg",
           title: 'Bangalore - Sports',
           text: "Click here to view all the upcoming Sports Events in Bangalore"
         },
@@ -44,7 +44,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "51.5074",
           longitude: "0.1278",
           category: "concerts",
-          image: "assets/images/london_concerts.jpg",
+          image: "assets/images/bookmarks/london_concerts.jpg",
           title: 'London - Concerts',
           text: "Click here to view all the upcoming Concerts in London"
         },
@@ -52,7 +52,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "51.5074",
           longitude: "0.1278",
           category: "festivals",
-          image: "assets/images/london_festivals.jpg",
+          image: "assets/images/bookmarks/london_festivals.jpg",
           title: 'London - Festivals',
           text: "Click here to view all the upcoming Festivals in London"
         },
@@ -60,7 +60,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "48.8566",
           longitude: "2.3522",
           category: "sports",
-          image: "assets/images/paris_sports.jpg",
+          image: "assets/images/bookmarks/paris_sports.jpg",
           title: 'Paris - Sports',
           text: "Click here to view all the upcoming Sports Events in Paris"
         },
@@ -68,7 +68,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "48.8566",
           longitude: "2.3522",
           category: "festivals",
-          image: "assets/images/paris_festivals.jpg",
+          image: "assets/images/bookmarks/paris_festivals.jpg",
           title: 'Paris - Festivals',
           text: "Click here to view all the upcoming Festivals in Paris"
         },
@@ -76,7 +76,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "48.8566",
           longitude: "2.3522",
           category: "concerts",
-          image: "assets/images/paris_concerts.jpg",
+          image: "assets/images/bookmarks/paris_concerts.jpg",
           title: 'Paris - Concerts',
           text: "Click here to view all the upcoming Concerts in Paris"
         },
@@ -84,7 +84,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "50.1109",
           longitude: "8.6821",
           category: "festivals",
-          image: "assets/images/frankfurt_festivals.jpg",
+          image: "assets/images/bookmarks/frankfurt_festivals.jpg",
           title: 'Frankfurt - Festivals',
           text: "Click here to view all the upcoming Festivals in Frankfurt"
         },
@@ -92,7 +92,7 @@ export class BookmarksHomeComponent implements OnInit {
           latitude: "50.1109",
           longitude: "8.6821",
           category: "concerts",
-          image: "assets/images/frankfurt_concerts.jpg",
+          image: "assets/images/bookmarks/frankfurt_concerts.jpg",
           title: 'Frankfurt - Concerts',
           text: "Click here to view all the upcoming Concerts in Frankfurt"
         }
