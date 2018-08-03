@@ -11,11 +11,13 @@ import { GoogleCustomSearchService } from "../../../providers/google-custom-sear
   styleUrls: ["./slider.component.scss"]
 })
 export class SliderComponent implements OnInit {
-  
-  public loading = false;
-  @Input()source: string = "Current Location";
-  @Input()destination: string = "Australia";
+  public loading = true;
+  @Input() source: string = "Current Location";
+  @Input() destination: string = "Australia";
   @Input() eventData: any;
+  public selectedLocation: any;
+  public showOverlay: boolean = true;
+  category: string;
   //destination: string = "Australia";
   // take images only with height greater than 700px
   photoReferences: Array<string>;
@@ -36,15 +38,12 @@ export class SliderComponent implements OnInit {
     this.images = [];
   }
   ngOnInit() {
+    this.getCurrentLocation();
+    this.category = this.selectedLocation.category;
+    this.fillDatatoCarousel(this.selectedLocation.latitude, this.selectedLocation.longitude, this.selectedLocation.category)
     this.createInitialOverlay();
     this.configureCarousel();
     this.createCarouselImage();
-    // this.data.cardDataObserver.subscribe((card: any) => {
-    //   if (card != null && card.title != null) {
-    //     this.smoothScroll.smoothScrollToTop();
-    //     this.destination = card.title;
-    //   }
-    // });
   }
 
   // initial overlay till the original image loads
@@ -57,84 +56,55 @@ export class SliderComponent implements OnInit {
     this.ngbCarouselConfig.interval = 0;
     this.ngbCarouselConfig.pauseOnHover = true;
   }
+
+  getCurrentLocation() {
+    this.selectedLocation = {
+      latitude: '12.972442',
+      longitude: '77.580643',
+      category: "sports"
+    };
+  }
   // create image data for carousel
   createCarouselImage() {
-    /*this.googleCustomSearch.getPhotos("Art for Concern - Masters of Today and Tomorrow").subscribe((data: any) => {
-      console.log(data);
-      data.items.forEach(item => {
-        var ext = item.link.substr(item.link.lastIndexOf('.') + 1);
-        if ((ext === "jpg" || ext === "png" || ext === "gif") && item.image.width > 710 && item.image.height > 530) {
-          this.images.push({
-            imageUrl: item.link,
-            captionHeading: "First slide label",
-            captionDetail:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          });
-        }
-      });
-      
-    });*/
-    this.images = {
-      "sports": []
-    }
-    this.images = [
-      {id: "1",imageUrl:"assets/images/bookmarks/bangalore_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "2",imageUrl:"assets/images/bookmarks/bangalore_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "3",imageUrl:"assets/images/bookmarks/bangalore_sports.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "4",imageUrl:"assets/images/bookmarks/london_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "5",imageUrl:"assets/images/bookmarks/london_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "6",imageUrl:"assets/images/bookmarks/paris_sports.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "7",imageUrl:"assets/images/bookmarks/paris_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "8",imageUrl:"assets/images/bookmarks/frankfurt_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "9",imageUrl:"assets/images/bookmarks/frankfurt_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "10",imageUrl:"assets/images/bookmarks/paris_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-    ];
-    for (let index = 0; index < this.eventData.length; index++) {
-      console.log(this.eventData);
-      var startDateTime = this.eventData[index].start.split("T");
-      var startDate = startDateTime[0];
-      var startTime = startDateTime[1].split("Z")[0];
-;      this.images[index].captionHeading = this.eventData[index].title;
-      this.images[index].captionDetail = "Starting on " + startDate + " at " + startTime;
-    }
-
-    this.loading = false;
-
     // Listens for card click events from bookmarks home page
-    this.data.cardDataObserver.subscribe((card: any) => {
-      if (card != null && card.title != null) {
+    this.data.dataObserver.subscribe((data: any) => {
+      if (data != null && data.title != null) {
+        this.loading = true;
         this.smoothScroll.smoothScrollToTop();
-        this.destination = card.title;
+        this.destination = data.title;
 
         // Send details from the clicked card
-        var latitude: string = card.latitude;
-        var longitude: string = card.longitude;
-        var category: string = card.category;
+        var latitude: string = data.latitude;
+        var longitude: string = data.longitude;
+        var category: string = data.category;
 
-        var activeImage:any;
-        this.images.forEach(image => {
-          if (image.id === '1') {
-            activeImage = image;
-          }
-        });
-        this.images.forEach(image => {
-          if (image.imageUrl === card.image) {
-            var temp = activeImage.id;  
-            activeImage.id = image.id;  
-            image.id = temp;
-          }
-        });
-        // Gets the events from predictHQ based on the card details
-        this.data.getEvents(latitude, longitude, category).subscribe(
-          (data: any) => {
-            console.log(data);
-            this.images = this.data.buildCarouselImageDataFromPredictHQEventsResponse(data);
-          },
-          error => {
-            console.log(error);
-          }
-        );
+        this.fillDatatoCarousel(latitude,longitude, category);
       }
     });
   }
+
+    // configuration for ngb carousel
+    fillDatatoCarousel(latitude, longitude, category) {
+      this.data.getEvents(latitude, longitude, category).subscribe(
+        (data: any) => {
+          this.images = this.data.buildCarouselImageDataFromPredictHQEventsResponse(data);
+          this.category = this.images.category;
+          this.selectedLocation.category = this.category;
+          this.selectedLocation.latitude = latitude;
+          this.selectedLocation.longitude = longitude;
+          for (let index = 0; index < data.results.length; index++) {
+            var startDateTime = data.results[index].start.split("T");
+            var startDate = startDateTime[0];
+            var startTime = startDateTime[1].split("Z")[0];
+            this.images[this.category][index].captionHeading = data.results[index].title;
+            this.images[this.category][index].captionDetail = "Starting on " + startDate + " at " + startTime;
+          }
+          this.loading = false;
+          this.showOverlay = false;
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
 }

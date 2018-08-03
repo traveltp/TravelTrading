@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
   constructor(private http: HTTPService, private data: DataService) {}
   public loading: boolean = false;
   public showFilters: boolean = false;
-  public selectedLocation: any = {};
   public source: string;
   public destination: string;
   public eventData: any;
@@ -20,12 +19,12 @@ export class HomeComponent implements OnInit {
   public showOverlay: boolean = true;
 
   ngOnInit() {
-    this.getCurrentLocation();
+    //this.getCurrentLocation();
   }
   
   // get user's current location
   getCurrentLocation() {
-    if (navigator.geolocation) {
+    /*if (navigator.geolocation) {
       this.loading = true;
       navigator.geolocation.getCurrentPosition(position => {
         this.source = "Current Location";
@@ -56,6 +55,6 @@ export class HomeComponent implements OnInit {
             }
           );
       });
-    }
+    }*/
   }
 }

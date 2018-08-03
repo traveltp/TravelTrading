@@ -1,7 +1,3 @@
-<app-filters *ngIf="showFilters" [selectedLocation]="selectedLocation"></app-filters>
-<div *ngIf="showOverlay" class="background-overlay">
-  <app-form [source]="source"></app-form>
-</div>
-<app-slider *ngIf="showCarousel" [source]="source" [destination]="destination" [eventData]="eventData"></app-slider>
+<app-slider [source]="source" [destination]="destination" [eventData]="eventData"></app-slider>
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
 <app-bookmarks-home></app-bookmarks-home>

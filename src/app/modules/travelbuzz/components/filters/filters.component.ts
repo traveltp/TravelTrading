@@ -22,7 +22,6 @@ export class FiltersComponent implements OnInit {
   private filterState: string = "in";
   public filters: any;
   public selectedCategory: string;
-  public loading: boolean = false;
 
   constructor(private data: DataService) {
     this.filters = [
@@ -36,28 +35,23 @@ export class FiltersComponent implements OnInit {
 
   ngOnInit() {
     this.selectedCategory = this.selectedLocation.category;
+
+    this.data.dataObserver.subscribe((event: any) => {
+      if (event != null && event.category != null) {
+        this.selectedCategory = event.category;
+      }
+    });
   }
   // to update data on the basis of filter selected
   toggleFilter(category) {
-    console.log(category);
-    this.loading = true;
     this.selectedCategory = category;
-    this.data
-      .getEvents(
-        this.selectedLocation.latitude,
-        this.selectedLocation.longitude,
-        category
-      )
-      .subscribe(
-        (data: any) => {
-          console.log(data);
-          this.loading = false;
-        },
-        error => {
-          console.log(error);
-          this.loading = false;
-        }
-      );
+
+    var data:any = {};
+    data.title = "From Filter";
+    data.category = category;
+    data.latitude = this.selectedLocation.latitude;
+    data.longitude = this.selectedLocation.longitude;
+    this.data.getCardData(data);
   }
 
   // to show and hide filter panel on click of filters element

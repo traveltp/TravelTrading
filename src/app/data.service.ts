@@ -10,7 +10,7 @@ export class DataService {
 
   // BehaviorSubject is used as it will ensure that data supplied is always latest
   private messageSource = new BehaviorSubject('Listening for card Click Event');
-  cardDataObserver = this.messageSource.asObservable();
+  dataObserver = this.messageSource.asObservable();
 
   constructor(private http: HTTPService) { }
 
@@ -48,23 +48,23 @@ export class DataService {
  * @return Array<any> images contains Carousel Image Data
  */
   buildCarouselImageDataFromPredictHQEventsResponse(data: any): any {
-    var images: Array<any> = [];
+    var images:any = {};
 
     if (data != null && data.results != null && data.results.length > 0) {
+      images[data.results[0].category] = [];
       for (var i = 0; i < data.results.length; i++) {
         var image: any = {};
         var result: any = data.results[i];
-
         image.id = i + 1;
         image.imageUrl = "assets/images/" + result.category + "/" + image.id + ".jpg";
         image.captionHeading = result.title;
-        image.captionDetail = result.description;
+        //image.captionDetail = result.description;
         image.start = result.start;
         image.end = result.end;
-        image.category = result.category;
         image.countryCode = result.country;
         image.duration = result.duration;
-        images.push(image);
+        images[result.category].push(image);
+        images['category'] = result.category;
       }
     }
     return images;
