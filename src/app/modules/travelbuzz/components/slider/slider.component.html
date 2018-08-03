@@ -1,16 +1,13 @@
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-<div *ngIf="showOverlay" class="background-overlay">
-  <app-form [source]="source"></app-form>
-</div>
 <div>
   <ngb-carousel *ngIf="images" style="width: 100%; height: 100%" #myCarousel="ngbCarousel">
     <ng-template [id]="image.id" *ngFor="let image of images" ngbSlide>
       <app-form [source]="source" [destination]="destination"></app-form>
       <div class="image-setter" [ngStyle]="{'background-image': 'url(' + image.imageUrl + ')'}"></div>
-      <!--<div class="carousel-caption">
+      <div class="carousel-caption">
         <h3>{{image.captionHeading}}</h3>
         <p>{{image.captionDetail}}</p>
-      </div>-->
+      </div>
     </ng-template>
   </ngb-carousel>
 </div>

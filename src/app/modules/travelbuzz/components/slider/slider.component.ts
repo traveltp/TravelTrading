@@ -13,13 +13,13 @@ import { GoogleCustomSearchService } from "../../../providers/google-custom-sear
 export class SliderComponent implements OnInit {
   
   public loading = false;
-  showOverlay: boolean = true;
   @Input()source: string = "Current Location";
   @Input()destination: string = "Australia";
+  @Input() eventData: any;
   //destination: string = "Australia";
   // take images only with height greater than 700px
   photoReferences: Array<string>;
-  images: Array<any>;
+  images: any;
   constructor(
     private ngbCarouselConfig: NgbCarouselConfig,
     @ViewChild("myCarousel") public myCarousel: NgbCarousel,
@@ -74,19 +74,30 @@ export class SliderComponent implements OnInit {
       });
       
     });*/
+    this.images = {
+      "sports": []
+    }
     this.images = [
-      {id: "1",imageUrl:"assets/images/bangalore_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "2",imageUrl:"assets/images/bangalore_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "3",imageUrl:"assets/images/bangalore_sports.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "4",imageUrl:"assets/images/london_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "5",imageUrl:"assets/images/london_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "6",imageUrl:"assets/images/paris_sports.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "7",imageUrl:"assets/images/paris_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "8",imageUrl:"assets/images/frankfurt_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "9",imageUrl:"assets/images/frankfurt_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
-      {id: "10",imageUrl:"assets/images/paris_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+      {id: "1",imageUrl:"assets/images/bookmarks/bangalore_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      {id: "2",imageUrl:"assets/images/bookmarks/bangalore_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      {id: "3",imageUrl:"assets/images/bookmarks/bangalore_sports.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      {id: "4",imageUrl:"assets/images/bookmarks/london_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      {id: "5",imageUrl:"assets/images/bookmarks/london_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      {id: "6",imageUrl:"assets/images/bookmarks/paris_sports.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      {id: "7",imageUrl:"assets/images/bookmarks/paris_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      {id: "8",imageUrl:"assets/images/bookmarks/frankfurt_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      {id: "9",imageUrl:"assets/images/bookmarks/frankfurt_concerts.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."},
+      {id: "10",imageUrl:"assets/images/bookmarks/paris_festivals.jpg", captionHeading: "First slide label", captionDetail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
     ];
-    this.showOverlay = false;
+    for (let index = 0; index < this.eventData.length; index++) {
+      console.log(this.eventData);
+      var startDateTime = this.eventData[index].start.split("T");
+      var startDate = startDateTime[0];
+      var startTime = startDateTime[1].split("Z")[0];
+;      this.images[index].captionHeading = this.eventData[index].title;
+      this.images[index].captionDetail = "Starting on " + startDate + " at " + startTime;
+    }
+
     this.loading = false;
 
     // Listens for card click events from bookmarks home page

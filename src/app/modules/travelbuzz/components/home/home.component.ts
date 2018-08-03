@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
   public selectedLocation: any = {};
   public source: string;
   public destination: string;
+  public eventData: any;
+  public showCarousel: boolean = false;
+  public showOverlay: boolean = true;
 
   ngOnInit() {
     this.getCurrentLocation();
@@ -42,7 +45,9 @@ export class HomeComponent implements OnInit {
           )
           .subscribe(
             (data: any) => {
-              console.log(data);
+              this.showCarousel = true;
+              this.showOverlay = false;
+              this.eventData = data.results;
               this.loading = false;
             },
             error => {
