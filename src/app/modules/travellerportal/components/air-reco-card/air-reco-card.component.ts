@@ -10,9 +10,12 @@ export class AirRecoCardComponent implements OnInit {
   constructor() { }
 
   private airReco:any;
+  private currency:string;
+  private outbounds:any;
+  private inbounds:any;
 
   ngOnInit() {
-    const airReco: any = {
+    const airData: any = {
       "currency": "USD",
       "results": [
         {
@@ -146,8 +149,10 @@ export class AirRecoCardComponent implements OnInit {
       ]
     };
 
-    this.airReco = airReco;
-
+    this.airReco = airData.results[0];
+    this.currency = airData.currency;
+    this.outbounds = airData.results[0].itineraries[0].outbound;
+    this.inbounds = airData.results[0].itineraries[0].inbound;
   }
 
 }

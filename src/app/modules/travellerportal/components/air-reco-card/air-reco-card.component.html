@@ -1,3 +1,34 @@
-<p>
-  air-reco-card works!
-</p>
+<div>
+  Outbound:
+  <div class="bound">
+    <div *ngFor="let outboundFlight of outbounds.flights">
+      <div class="airlineLogo" [ngStyle]="{'background-image': 'url(assets/logos/air/' + outboundFlight.marketing_airline + '.png)'}"></div>
+      <li>
+        <ol>Flight No: {{outboundFlight.flight_number}}</ol>
+        <ol>Departure: {{outboundFlight.departs_at}}</ol>
+        <ol>Arrival: {{outboundFlight.arrives_at}}</ol>
+        <ol>Origin: {{outboundFlight.origin.airport}} Terminal {{outboundFlight.origin.terminal}}</ol>
+        <ol>Destination: {{outboundFlight.destination.airport}} Terminal {{outboundFlight.destination.terminal}}</ol>
+      </li>
+    </div>
+    <div class="duration">Total Duration: {{outbounds.duration}}</div>
+  </div>
+  Inbound:
+  <div class="bound">
+    <div *ngFor="let inboundFlight of inbounds.flights">
+      <div class="airlineLogo" [ngStyle]="{'background-image': 'url(assets/logos/air/' + inboundFlight.marketing_airline + '.png)'}"></div>
+      <li>
+        <ol>Departure: {{inboundFlight.departs_at}}</ol>
+        <ol>Arrival: {{inboundFlight.arrives_at}}</ol>
+        <ol>Origin: {{inboundFlight.origin.airport}} Terminal {{inboundFlight.origin.terminal}}</ol>
+        <ol>Destination: {{inboundFlight.destination.airport}} Terminal {{inboundFlight.destination.terminal}}</ol>
+      </li>
+    </div>
+    <div class="duration">Total Duration: {{inbounds.duration}}</div>
+  </div>
+  <div class="fare">
+    {{airReco.fare.total_price}} {{currency}}
+  </div>
+
+
+</div>
