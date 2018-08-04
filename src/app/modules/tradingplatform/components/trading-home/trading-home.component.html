@@ -5,7 +5,7 @@
   <div class="topSection">
     <app-top-section></app-top-section>
   </div>
-  <div class="large-layout-glass" [@slideOutInMin]="largeLayoutState">
+  <div class="large-layout-glass">
     <div class="pane pane1"></div>
     <div class="pane pane2"></div>
     <div class="pane pane3"></div>
@@ -14,11 +14,11 @@
   <div class="large-layout" [@slideOutIn]="largeLayoutState">
     <app-dashboard></app-dashboard>
   </div>
-  <div class="small-layout" [@slideInOut]="animationState">
+  <!--<div class="small-layout" [@slideInOut]="animationState">
     <span>small space</span>
   </div>
   <div class="collapsable-div" (click)="toggleElement()">
     <span class="text-vertical">Collapser</span>
-  </div>
+  </div>-->
 
 </div>

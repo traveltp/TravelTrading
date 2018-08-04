@@ -72,7 +72,7 @@ export class FormComponent implements OnInit {
   submitInterest() {
     console.log(this.email);
     this.loading = true;
-    this.http.processPostRequest("http://localhost:4000/interest/postInterest", {
+    this.http.processPostRequest("http://172.22.184.26:4000/interest/postInterest", {
       source: {
         name: "Bengaluru",
         city: "Bangalore",
