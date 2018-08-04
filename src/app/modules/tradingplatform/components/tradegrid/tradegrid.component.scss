@@ -113,6 +113,7 @@ input {
 
 li {
     float: left;
+    width: 120px;
 }
 
 li a {
@@ -173,4 +174,18 @@ td {
   cursor: pointer;
   outline: none;
   border-radius: 0.313em;
+}
+
+.button2.attach {
+  float: right;
+  margin-left: 0;
+  margin-right: 30px;
+}
+
+.events a {
+  width: 120px;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

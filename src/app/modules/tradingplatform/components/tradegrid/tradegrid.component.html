@@ -40,8 +40,13 @@
 			</ul>
 	<ul *ngFor="let interest of interestData">
 			<li><a>{{interest.source.name}}</a></li>
-			<li><a>{{interest.destination.name}}</a></li>
-			<button class="button button2" (click)="attachRecos(interest._id)">Attach</button>
+			<li><a>{{interest.destination.city}}</a></li>
+			<li><a>{{interest.fromDate}}</a></li>
+			<li><a>{{interest.toDate}}</a></li>
+			<li class="events"><a>{{interest.destination.name}}</a></li>
+			<li *ngIf="interest.pax != null"><a>{{interest.pax.noOfAdults}}</a></li>
+			<li *ngIf="interest.pax != null"><a>{{interest.pax.noOfChildren}}</a></li>
+			<button class="button button2 attach" (click)="attachRecos(interest._id)">Attach</button>
 		</ul>
 	</div>
  </div>
