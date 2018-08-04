@@ -27,5 +27,16 @@
   </div>
   <div class="large-layout-glass">
     <div class="pane pane1"></div>
-  </div>
+	</div>
+	<div style="height: 780px; overflow: scroll;">
+			<ul>
+					<li><a href="#home">Source</a></li>
+					<li><a href="#news">Destination</a></li>
+			</ul>
+	<ul *ngFor="let interest of interestData">
+			<li><a>{{interest.source.name}}</a></li>
+			<li><a>{{interest.destination.name}}</a></li>
+			<button class="button button2" (click)="attachRecos()">Attach</button>
+		</ul>
+	</div>
  </div>

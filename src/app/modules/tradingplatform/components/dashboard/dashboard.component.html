@@ -1,5 +1,5 @@
 
-<div *ngFor="let data of countData" class="locCard" (click)="redirectToGrid()">
+<div *ngFor="let data of countData" class="locCard" (click)="redirectToGrid()" (click)="redirectToGrid(data._id)">
 	<div class="absol">
 	<div class="detailSection">
 
@@ -10,7 +10,7 @@
 		<div class="title">
 			{{data._id}}
 		</div>
-		<div class="price positive">
+		<div class="price positive" [ngClass]="{'priceUpdated': data._id===cityUpdatedData}">
 			{{data.count}} <i class="fa fa-chevron-up"></i>
 		</div>
 	</div>

@@ -10,24 +10,28 @@ import { HTTPService } from '../../../providers';
 export class DashboardComponent implements OnInit {
   numbers: Array<number>;
   countData: any;
+  cityUpdatedData: any;
   constructor(private router: Router, private http: HTTPService) {
     this.numbers = Array(25).fill(1);
    }
 
   ngOnInit() {
     this.http.processGetRequest("http://172.22.184.26:4000/locationCount/getLocationsCount", "").subscribe((data: any) => {
-      console.log(data[0].count);
       this.countData = data;
     });
     setInterval(()=>{
       this.http.processGetRequest("http://172.22.184.26:4000/locationCount/getLocationsCount", "").subscribe((data: any) => {
-        console.log(data[0].count);
-        this.countData = data;
+        for (let index = 0; index < this.countData.length; index++) {
+          if (this.countData[index].count < data[index].count) {
+            this.cityUpdatedData = this.countData[index]._id;
+          }
+          this.countData = data;
+        }
       });
     },10000)
   }
-  redirectToGrid() {
-    this.router.navigate(['/trading-grid']);
+  redirectToGrid(city) {
+    this.router.navigate(['/trading-grid', {city: city}]);
   }
 
 }
