@@ -1,3 +1,21 @@
-<li>
-  <ol></ol>
-</li>
+<div *ngFor="let carResult of carResults">
+<hr>
+  <p style="font: bold">Provider: {{carResult.provider.company_name}}</p>
+  <hr>
+  <div *ngFor="let car of carResult.cars">
+    <p>Vehicle info:</p>
+    <p>Acriss Code: {{car.vehicle_info.acriss_code}}</p>
+    <p>Transmission: {{car.vehicle_info.transmission}}</p>
+    <p>Fuel: {{car.vehicle_info.fuel}}</p>
+    <p>Air Conditioning: {{car.vehicle_info.air_conditioning}}</p>
+    <p>Category: {{car.vehicle_info.category}}</p>
+    <p>Type: {{car.vehicle_info.type}}</p>
+
+
+    <p>Daily Rate: {{car.rates[0].price.amount}} {{car.rates[0].price.currency}}</p>
+
+    <p>Estimated Total: {{car.estimated_total.amount}} {{car.estimated_total.currency}}</p>
+    <hr>
+  </div>
+  <br>
+</div>

@@ -10,10 +10,10 @@ export class AirRecoCardComponent implements OnInit {
 
   constructor(private data: DataService) { }
 
-  private airReco:any;
-  private currencyCode:string;
-  private outbounds:any;
-  private inbounds:any;
+  private airReco: any;
+  private currencyCode: string;
+  private outbounds: any;
+  private inbounds: any;
   @Input() airData;
   @Input() currency;
 

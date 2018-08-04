@@ -1,10 +1,12 @@
 <div class="main">
-  <div class="onethird" style="position:absolute;margin-left:40%;">   
-      <div *ngFor="let airData of airRecos">
-          <app-air-reco-card *ngIf="airData != null" [airData]="airData" [currency]="currency"></app-air-reco-card>
+    <div class="onethird" style="position:absolute;margin-left:40%;">
+        <div *ngFor="let airData of airRecos">
+            <app-air-reco-card *ngIf="airData != null" [airData]="airData" [currency]="currency"></app-air-reco-card>
         </div>
-  </div>
-  <div class="onethird" >
-      <app-hotel-card *ngIf="hotelData != null" [hotelData]="hotelData"></app-hotel-card>
+    </div>
+    <div class="onethird">
+        <app-hotel-card *ngIf="hotelData != null" [hotelData]="hotelData"></app-hotel-card>
     </div>
 </div>
+
+<!-- <app-car-reco-card [carResults]="carResults"></app-car-reco-card> -->

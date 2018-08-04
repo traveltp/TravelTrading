@@ -18,6 +18,7 @@ export class TravellerHomeComponent implements OnInit {
   private airRecos: any;
   private hotelData: any;
   private currency: any;
+  private carResults: any;
 
   ngOnInit() {
 
@@ -27,7 +28,7 @@ export class TravellerHomeComponent implements OnInit {
           (data: any) => {
             if (data != null && data[0] != null) {
               if (data[0].AirRecos != null && data[0].AirRecos.air != null) {
-                var parsedData:any = JSON.parse(data[0].AirRecos.air);
+                var parsedData: any = JSON.parse(data[0].AirRecos.air);
                 this.airRecos = parsedData.results;
                 this.currency = parsedData.currency;
               }
@@ -49,6 +50,11 @@ export class TravellerHomeComponent implements OnInit {
     //     this.airRecos = data.results;
     //     this.currency = data.currency;
     //   });
+
+    this.getCarData().subscribe(
+      (data: any) => {
+        this.carResults = data.results;
+      });
   }
 
   getHotelData() {
