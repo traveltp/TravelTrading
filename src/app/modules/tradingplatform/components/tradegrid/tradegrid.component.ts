@@ -19,5 +19,9 @@ export class TradegridComponent implements OnInit {
     });
    });
   }
-
+  attachRecos(_id) {
+    this.http.processGetRequest("http://172.22.184.26:4000/recos/getRecos/" + _id, "").subscribe(() => {
+      alert("request sent");
+    });;
+  }
 }
