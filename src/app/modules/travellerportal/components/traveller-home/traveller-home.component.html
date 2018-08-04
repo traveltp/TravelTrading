@@ -1,6 +1,3 @@
-<h1>Traveller Home Page</h1>
-<p>
-  traveller-home works!
-</p>
+<app-hotel-card *ngIf="hotelData != null" [hotelData]="hotelData"></app-hotel-card>
 
 <button routerLink="/traveller-recos/{{id}}"></button>

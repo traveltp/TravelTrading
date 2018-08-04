@@ -10,11 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTPService } from './modules/providers/';
 import { TravellerHomeComponent } from './modules/travellerportal/components/traveller-home/traveller-home.component';
 import { TravellerRecosComponent } from './modules/travellerportal/components/traveller-recos/traveller-recos.component';
+import { HotelCardComponent } from './modules/travellerportal/components/hotel-card/hotel-card.component';
 @NgModule({
   declarations: [
     AppComponent,
     TravellerHomeComponent,
-    TravellerRecosComponent
+    TravellerRecosComponent,
+    HotelCardComponent
   ],
   imports: [
     BrowserModule,

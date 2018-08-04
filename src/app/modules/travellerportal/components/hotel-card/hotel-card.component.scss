@@ -1,0 +1,21 @@
+.hotel_card_image {
+	width: 70px;
+	height:70px;
+	float:left;
+}
+
+.cardHotels {
+	box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.25);
+	padding: 10px;
+	background-color: #f3f3f3;
+    margin-bottom: 10px;
+    width: 700px;
+}
+
+.hotel_card_title {
+	text-align: center;
+}
+
+.card_price {
+	float: right;
+}
