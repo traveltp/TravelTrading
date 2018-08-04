@@ -1,6 +1,6 @@
 <div class="main">
-    <div class="onethird" style="position:absolute;margin-left:40%;">
-        <div *ngFor="let airData of airRecos">
+    <div class="onethird" style="position:absolute;margin-left:46%;">
+        <div *ngFor="let airData of airRecos" style="background:#FFF;opacity:0.9;">
             <app-air-reco-card *ngIf="airData != null" [airData]="airData" [currency]="currency"></app-air-reco-card>
         </div>
     </div>
