@@ -1,4 +1,51 @@
 .airlineLogo {
     height: 5em;
     background-repeat: no-repeat;
+    display: inline-block;
+    width: 20%;
+    background-position: center;
+}
+.reco {
+    border: 1px solid;
+}
+.listClass {
+    width: 70%;
+    display: inline-block;
+}
+.timeSection {
+    width: 20%;
+    display: inline-block;
+}
+.terminalSection {
+    width: 55%;
+    display: inline-block;
+}
+.flightSection {
+    width: 20%;
+    display: inline-block;
+}
+hr {
+    border: 5px solid red;
+}
+.duration {
+    width: 10%;
+    display: inline-block;
+}
+.inbound {
+    width: 90%;
+}
+.outbound {
+    width: 90%;
+}
+.boundInfo {
+    width: 90%;
+    display: inline-block;
+}
+.fare {
+    width: 10%;
+    display: inline-block;
+}
+.thinBorder {
+    border : 1px solid #CCC;
+    margin: 0;
 }
