@@ -32,11 +32,16 @@
 			<ul>
 					<li><a href="#home">Source</a></li>
 					<li><a href="#news">Destination</a></li>
+					<li><a href="#news">From Date</a></li>
+					<li><a href="#news">To Date</a></li>
+					<li><a href="#news">Event</a></li>
+					<li><a href="#news">Adults</a></li>
+					<li><a href="#news">Children</a></li>
 			</ul>
 	<ul *ngFor="let interest of interestData">
 			<li><a>{{interest.source.name}}</a></li>
 			<li><a>{{interest.destination.name}}</a></li>
-			<button class="button button2" (click)="attachRecos()">Attach</button>
+			<button class="button button2" (click)="attachRecos(interest._id)">Attach</button>
 		</ul>
 	</div>
  </div>
