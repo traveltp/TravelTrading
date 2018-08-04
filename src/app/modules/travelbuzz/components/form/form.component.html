@@ -1,3 +1,4 @@
+<div *ngIf="showSnackBar" id="snackbar">Your request has been submitted successfully</div>
 <div class="form-box">
   <div class="tranBox">
   </div>
@@ -23,11 +24,8 @@
     </div>
     <div class="input-holder">
       <i class="{{field5.icon}} {{field5.iconSide}}"></i>
-      <input type={{field5.type}} placeholder={{field5.name}}/>
-    </div>
-    <div class="input-holder {{field6.iconSide}}">
-      <i class="{{field6.icon}}"></i>
-      <input type={{field6.type}} placeholder={{field6.name}}/>
+      <input type={{field5.type}} placeholder="Adult" [(ngModel)]="noOfAdults"/>
+      <input type={{field5.type}} placeholder="Children" [(ngModel)]="noOfChildren"/>
     </div>
     <div class="material-submit-button">
       <button class="button button2" (click)="submitInterest()">Submit</button>

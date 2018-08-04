@@ -19,6 +19,9 @@ export class FormComponent implements OnInit {
   @Input() country: string = "India";
   public loading: boolean = false;
   public placeLocation: Array<string>;
+  public noOfAdults: string;
+  public noOfChildren: string;
+  public showSnackBar: boolean = false;
 
   field1 = {
     name: "Source",
@@ -50,12 +53,6 @@ export class FormComponent implements OnInit {
     iconSide: "left-side",
     icon: "fa fa-users"
   };
-  field6 = {
-    name: "Preferences",
-    type: "select",
-    iconSide: "left-side",
-    icon: "fa fa-plane"
-  };
   constructor(private http: HTTPService, private data: DataService) {}
 
   ngOnInit() {
@@ -78,6 +75,7 @@ export class FormComponent implements OnInit {
     this.http.processPostRequest("http://localhost:4000/interest/postInterest", {
       source: {
         name: "Bengaluru",
+        city: "Bangalore",
         lat: "12.972442",
         long: "77.580643",
         country: "India"
@@ -86,7 +84,12 @@ export class FormComponent implements OnInit {
         name: this.destinationCity,
         lat: this.placeLocation[1],
         long: this.placeLocation[0],
-        country: this.country
+        country: this.country,
+        city: this.destinationCity
+      },
+      pax: {
+        noOfAdults: this.noOfAdults,
+        noOfChildren: this.noOfChildren
       },
       email: this.email,
       fromDate: this.startDate,
@@ -95,6 +98,10 @@ export class FormComponent implements OnInit {
     }, "")
       .subscribe(
         (data: any) => {
+          this.showSnackBar = true;
+          setTimeout(()=>{
+            this.showSnackBar = false;
+          },2000)
           console.log(data);
           this.loading = false;
         },
