@@ -1,5 +1,4 @@
 <div *ngFor="let carResult of carResults">
-<hr>
   <p style="font-weight: bold">Provider: {{carResult.provider.company_name}}</p>
   <hr>
   <div *ngFor="let car of carResult.cars">
@@ -15,7 +14,6 @@
     <p>Daily Rate: {{car.rates[0].price.amount}} {{car.rates[0].price.currency}}</p>
 
     <p>Estimated Total: {{car.estimated_total.amount}} {{car.estimated_total.currency}}</p>
-    <hr>
   </div>
   <br>
 </div>

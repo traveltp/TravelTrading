@@ -8,7 +8,7 @@
 	box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.25);
 	padding: 10px;
 	background-color: #f3f3f3;	
-	margin: 10px 20px;
+	margin: 10px 2px;
 	opacity: 0.9;
     color: black;
 }
@@ -27,16 +27,14 @@
 	bottom: 100px;
 }
 .hotelDetails {
-	width: 60%;
+	width: 70%;
 	display: inline-block;
 	margin-left: 20px;
 	background: #dabba4;
 }
 .fare {
     width: 10%;
-    display: inline-block;
-    position: relative;
-    bottom: 50px;
+    margin-left: 20px;
 }
 .fareHolder {
     width : 130px;
