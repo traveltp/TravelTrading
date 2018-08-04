@@ -12,13 +12,15 @@ import { TravellerHomeComponent } from './modules/travellerportal/components/tra
 import { TravellerRecosComponent } from './modules/travellerportal/components/traveller-recos/traveller-recos.component';
 import { AirRecoCardComponent } from './modules/travellerportal/components/air-reco-card/air-reco-card.component';
 import { HotelCardComponent } from './modules/travellerportal/components/hotel-card/hotel-card.component';
+import { CarRecoCardComponent } from './modules/travellerportal/components/car-reco-card/car-reco-card.component';
 @NgModule({
   declarations: [
     AppComponent,
     TravellerHomeComponent,
     TravellerRecosComponent,
     AirRecoCardComponent,
-    HotelCardComponent
+    HotelCardComponent,
+    CarRecoCardComponent
   ],
   imports: [
     BrowserModule,

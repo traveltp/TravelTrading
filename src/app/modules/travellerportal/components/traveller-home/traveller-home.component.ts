@@ -23,20 +23,32 @@ export class TravellerHomeComponent implements OnInit {
 
     this.route.params.subscribe(
       params => {
-        console.log(params.id);
+        this.getRecos(params.id).subscribe(
+          (data: any) => {
+            if (data != null && data[0] != null) {
+              if (data[0].AirRecos != null && data[0].AirRecos.air != null) {
+                var parsedData:any = JSON.parse(data[0].AirRecos.air);
+                this.airRecos = parsedData.results;
+                this.currency = parsedData.currency;
+              }
+              if (data[0].HotelRecos != null && data[0].HotelRecos.hotel != null) {
+                this.hotelData = JSON.parse(data[0].HotelRecos.hotel);
+              }
+            }
+          });
       }
     );
 
-    this.getHotelData().subscribe(
-      (data: any) => {
-        this.hotelData = data;
-      });
+    // this.getHotelData().subscribe(
+    //   (data: any) => {
+    //     this.hotelData = data;
+    //   });
 
-    this.getAirData().subscribe(
-      (data: any) => {
-        this.airRecos = data.results;
-        this.currency = data.currency;
-      });
+    // this.getAirData().subscribe(
+    //   (data: any) => {
+    //     this.airRecos = data.results;
+    //     this.currency = data.currency;
+    //   });
   }
 
   getHotelData() {
@@ -59,6 +71,27 @@ export class TravellerHomeComponent implements OnInit {
         'Authorization': 'Bearer OEW4buy0voNY4LUlXjbw4Qa7zu1Sdi'
       })
     };
+
+    return this.http.processGetRequest(urlRequest, httpOptions);
+  }
+
+  getCarData() {
+    var urlRequest = "https://api.sandbox.amadeus.com/v1.2/cars/search-circle?apikey=lA2oAYa7Hkie9dHntgLxhnkVoSAGrd7k&latitude=35.1504&longitude=-114.57632&radius=42&pick_up=2018-12-07&drop_off=2018-12-08";
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer OEW4buy0voNY4LUlXjbw4Qa7zu1Sdi'
+      })
+    };
+
+    return this.http.processGetRequest(urlRequest, httpOptions);
+  }
+
+  // Gets both air and hotel data from mongoDB
+  getRecos(id: string) {
+    // var urlRequest = "http://172.22.184.26:4000/recos/getRecos/5b65c70d228a7e40c56888c0";
+    var urlRequest = "http://172.22.184.26:4000/recos/getRecos/" + id;
+    const httpOptions = {};
 
     return this.http.processGetRequest(urlRequest, httpOptions);
   }
