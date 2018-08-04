@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from "../../../../data.service";
 
 @Component({
   selector: 'app-air-reco-card',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AirRecoCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
   private airReco:any;
   private currency:string;
