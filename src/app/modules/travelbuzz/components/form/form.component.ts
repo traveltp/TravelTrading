@@ -81,7 +81,7 @@ export class FormComponent implements OnInit {
         country: "India"
       },
       destination: {
-        name: this.destinationCity,
+        name: this.destination,
         lat: this.placeLocation[1],
         long: this.placeLocation[0],
         country: this.country,

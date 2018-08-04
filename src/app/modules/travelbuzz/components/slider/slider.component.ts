@@ -78,7 +78,7 @@ export class SliderComponent implements OnInit {
     this.endDate = this.images[category][activeImageId].data.end.split("T")[0];
     var placeLocation = this.images[category][activeImageId].data.location;
     this.destination = this.images[category][activeImageId].data.title;
-    var placeId = this.images[category][activeImageId].data.place_hierarchies[0][5];
+    var placeId = this.images[category][activeImageId].data.place_hierarchies[0][3];
     this.data.getPlace(placeId).subscribe(
       (data: any) => {
         var formData = {
