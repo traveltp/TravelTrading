@@ -1,7 +1,7 @@
-
-<div class="main">
-<app-air-reco-card></app-air-reco-card>
+<app-air-reco-card *ngIf="airData != null" [airData]="airData">
+</app-air-reco-card>
 <app-hotel-card *ngIf="hotelData != null" [hotelData]="hotelData"></app-hotel-card>
-</div>
 
-<button routerLink="/traveller-recos/{{id}}"></button>
+<div *ngFor="let airData of airRecos">
+    <app-air-reco-card *ngIf="airData != null" [airData]="airData" [currency]="currency"></app-air-reco-card>
+</div>
