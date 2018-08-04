@@ -1,7 +1,7 @@
 <div class="reco">
   <div class="boundInfo">
     <div class="outbound">
-      <div class="airlineLogo" [ngStyle]="{'background-image': 'url(assets/logos/air/' + outbounds.flights[0].marketing_airline + '.png)'}"></div>
+      <div class="airlineLogo"><img [src]='"assets/logos/air/" + outbounds.flights[0].marketing_airline + ".png"'/></div>
       <div class="listClass">
         <div *ngFor="let outboundFlight of outbounds.flights">
           <div class="timeSection">
@@ -13,15 +13,14 @@
             --
             <span>{{outboundFlight.destination.airport}} {{outboundFlight.destination.terminal != null?'Terminal ' + outboundFlight.destination.terminal:""}}</span>
           </div>
-          <div class="flightSection"> {{outboundFlight.flight_number}}</div>
-          <hr class="thinBorder" />
+          
         </div>
       </div>
       <div class="duration">Duration: {{outbounds.duration}}</div>
     </div>
     <hr class="thinBorder" />
     <div class="inbound">
-      <div class="airlineLogo" [ngStyle]="{'background-image': 'url(assets/logos/air/' + inbounds.flights[0].marketing_airline + '.png)'}"></div>
+        <div class="airlineLogo"><img [src]='"assets/logos/air/" + inbounds.flights[0].marketing_airline + ".png"'/></div>
       <div class="listClass">
         <div *ngFor="let inboundFlight of inbounds.flights">
           <div class="timeSection">
@@ -33,14 +32,15 @@
             --
             <span>{{inboundFlight.destination.airport}} {{inboundFlight.destination.terminal != null?'Terminal ' + inboundFlight.destination.terminal:""}}</span>
           </div>
-          <div class="flightSection">{{inboundFlight.flight_number}}</div>
-          <hr class="thinBorder" />
+          
         </div>
       </div>
       <div class="duration">Duration: {{inbounds.duration}}</div>
     </div>
   </div>
   <div class="fare">
+    <div class="fareHolder">
     {{airReco.fare.total_price}} {{currency}}
+    </div>
   </div>
 </div>
