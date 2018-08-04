@@ -5,8 +5,8 @@
       <div class="listClass">
         <div *ngFor="let outboundFlight of outbounds.flights">
           <div class="timeSection">
-            <span>{{data.getDateAndTimeFromString(outboundFlight.departs_at)}}</span> --
-            <span>{{data.getDateAndTimeFromString(outboundFlight.arrives_at)}}</span>
+            <span>{{data.getShortDateandTimeFromString(outboundFlight.departs_at)}}</span> --
+            <span>{{data.getShortDateandTimeFromString(outboundFlight.arrives_at)}}</span>
           </div>
           <div class="terminalSection">
             <span>{{outboundFlight.origin.airport}} {{outboundFlight.origin.terminal != null?'Terminal ' + outboundFlight.origin.terminal:""}}</span>
@@ -25,8 +25,8 @@
       <div class="listClass">
         <div *ngFor="let inboundFlight of inbounds.flights">
           <div class="timeSection">
-            <span>{{data.getDateAndTimeFromString(inboundFlight.departs_at)}}</span> --
-            <span>{{data.getDateAndTimeFromString(inboundFlight.arrives_at)}}</span>
+            <span>{{data.getShortDateandTimeFromString(inboundFlight.departs_at)}}</span> --
+            <span>{{data.getShortDateandTimeFromString(inboundFlight.arrives_at)}}</span>
           </div>
           <div class="terminalSection">
             <span>{{inboundFlight.origin.airport}} {{inboundFlight.origin.terminal != null?'Terminal ' + inboundFlight.origin.terminal:""}}</span>

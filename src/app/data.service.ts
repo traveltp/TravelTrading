@@ -113,11 +113,20 @@ export class DataService {
   }
 
     /* 
-   * Function to get time from string of format 2018-09-01T07:55
+   * Function to get date and time from string of format 2018-09-01T07:55
    * @param string data
    * @return string will be in format Sat, 01 Sep 2018 07:55
    */
   getDateAndTimeFromString(data: string): any {
     return this.getDateFromString(data) + " " + this.getTimeFromString(data);
+  }
+
+  /* 
+   * Function to get short date and time from string of format 2018-09-01T07:55
+   * @param string data
+   * @return string will be in format 01 Sep 07:55
+   */
+  getShortDateandTimeFromString(data: string): any {
+    return new Date(data).toUTCString().split(' ').slice(1, 3).join(' ') + " " + this.getTimeFromString(data);
   }
 }
