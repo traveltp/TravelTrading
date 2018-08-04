@@ -1,1 +1,5 @@
+
 <app-air-reco-card></app-air-reco-card>
+<app-hotel-card *ngIf="hotelData != null" [hotelData]="hotelData"></app-hotel-card>
+
+<button routerLink="/traveller-recos/{{id}}"></button>
