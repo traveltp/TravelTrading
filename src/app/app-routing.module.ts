@@ -13,8 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'trading-home', component: TradingHomeComponent },
   { path: 'trading-grid', component: TradegridComponent},
-  { path: 'traveller-home', component: TravellerHomeComponent},
-  { path: 'traveller-recos/:id', component: TravellerRecosComponent},
+  { path: 'traveller-home/:id', component: TravellerHomeComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 @NgModule({

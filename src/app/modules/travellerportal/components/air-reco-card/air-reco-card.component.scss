@@ -7,8 +7,11 @@
     position: relative;
     bottom: 14px;
 }
-.reco {
-    border: 1px solid;
+.reco {    
+    margin: 10px 20px;
+    background: white;
+    opacity: 0.8;
+    padding: 5px 10px;
 }
 .listClass {
     width: 70%;
@@ -25,9 +28,6 @@
 .flightSection {
     width: 20%;
     display: inline-block;
-}
-hr {
-    border: 5px solid red;
 }
 .duration {
     width: 10%;
@@ -52,7 +52,7 @@ hr {
     bottom: 50px;
 }
 .fareHolder {
-    width : 100px;
+    width : 130px;
     height: 60px;
     margin-left: 5px;
     border-radius: 10px;

@@ -1,23 +1,28 @@
 <!-- Card -->
-<div class="card">
+
 	<div *ngFor="let result of hotelDetails.results" class="cardHotels">
-	    <h2 class="hotel_card_title">{{ result.property_name }}</h2>
-	    <div>
-		    <img class="card_title" src={{result.images[0].url}}>
-		    <h4 class="card_price">Price : {{ result.total_price.currency }} {{ hotelDetails.results[0].total_price.amount }}</h4>
-		    <h3 class="card_title">{{ result.address.line1 }}, {{ result.address.city }}, {{ result.address.country }} </h3>
+		<div class="hotelLogo"><img class="card_title" src={{result.images[0].url}}/></div>
+		<div class="hotelDetails">
+				<div class="hotel_card_title">{{ result.property_name }}</div>
+				<div class="card_title">{{ result.address.line1 }}, {{ result.address.city }}, {{ result.address.country }} </div>
+				<span class="card_title"*ngFor="let contact of result.contacts">
+						<span>{{ contact.type }} : {{ contact.detail }}</span>
+						<br/>
+					</span>
+					<div>
+						<b>Amenities: </b>
+						<span class="card_title" *ngFor="let amenity of hotelDetails.results[0].amenities" >
+						  <span>{{ amenity.description }},</span>						 
+					</span>
+					</div>
+		</div>
+	    
+	    <div class="fare">
+		    <div class="fareHolder">{{ hotelDetails.results[0].total_price.amount }} {{ result.total_price.currency }}</div>
+		    
 		</div>
 	    
 	    
-	    <ul class="card_title"*ngFor="let contact of result.contacts">
-	    	<span>{{ contact.type }} : {{ contact.detail }}</span>
-	    </ul>
-	    <div>
-	    	<b>Amenities: </b>
-	    	<span class="card_title" *ngFor="let amenity of hotelDetails.results[0].amenities" >
-	  	    <span>{{ amenity.description }},</span>
-		</span>
-	    </div>
+	    
 	</div>
-</div>
 
