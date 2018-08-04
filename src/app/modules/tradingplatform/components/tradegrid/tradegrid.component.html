@@ -29,7 +29,7 @@
     <div class="pane pane1"></div>
 	</div>
 	<div style="height: 780px; overflow: scroll;">
-			<ul>
+			<ul class="heading">
 					<li><a href="#home">Source</a></li>
 					<li><a href="#news">Destination</a></li>
 					<li><a href="#news">From Date</a></li>
@@ -38,7 +38,7 @@
 					<li><a href="#news">Adults</a></li>
 					<li><a href="#news">Children</a></li>
 			</ul>
-	<ul *ngFor="let interest of interestData">
+	<ul *ngFor="let interest of interestData" class="dataInterests">
 			<li><a>{{interest.source.name}}</a></li>
 			<li><a>{{interest.destination.city}}</a></li>
 			<li><a>{{interest.fromDate}}</a></li>
