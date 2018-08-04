@@ -46,7 +46,7 @@ export class DataService {
    * @param string id
    * @return Observable<any> contains data of events based on input params
    */
-  getPlace(id:string): Observable<any> {
+  getPlace(id: string): Observable<any> {
     var urlRequest: string = "https://api.predicthq.com/v1/places/?id=" + id;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -59,12 +59,12 @@ export class DataService {
   }
 
   /* 
- * Function to build Carousel Image Data From PredictHQ Events Response
- * @param any data
- * @return Array<any> images contains Carousel Image Data
- */
+   * Function to build Carousel Image Data From PredictHQ Events Response
+   * @param any data
+   * @return Array<any> images contains Carousel Image Data
+   */
   buildCarouselImageDataFromPredictHQEventsResponse(data: any): any {
-    var images:any = {};
+    var images: any = {};
 
     if (data != null && data.results != null && data.results.length > 0) {
       images[data.results[0].category] = [];
@@ -72,7 +72,7 @@ export class DataService {
         var image: any = {};
         var result: any = data.results[i];
         image.id = i;
-        image.imageUrl = "assets/images/" + result.category + "/" + (i+1) + ".jpg";
+        image.imageUrl = "assets/images/" + result.category + "/" + (i + 1) + ".jpg";
         image.captionHeading = result.title;
         //image.captionDetail = result.description;
         image.start = result.start;
@@ -85,5 +85,11 @@ export class DataService {
       }
     }
     return images;
+  }
+
+  getMockFlightData(): Observable<any> {
+    var urlRequest: string = "http://172.22.88.39:4000/recos/getFlights";
+
+    return this.http.processGetRequest(urlRequest, {});
   }
 }

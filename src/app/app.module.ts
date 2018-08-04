@@ -8,9 +8,13 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HTTPService } from './modules/providers/';
+import { TravellerHomeComponent } from './modules/travellerportal/components/traveller-home/traveller-home.component';
+import { TravellerRecosComponent } from './modules/travellerportal/components/traveller-recos/traveller-recos.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TravellerHomeComponent,
+    TravellerRecosComponent
   ],
   imports: [
     BrowserModule,
