@@ -9,7 +9,7 @@
     </div>
     <div class="input-holder">
       <i class="{{field2.icon}} {{field2.iconSide}}"></i>
-      <input type={{field2.type}} value={{destination}} placeholder={{field2.name}} ngx-google-places-autocomplete/>
+      <input type={{field2.type}} [(ngModel)]="destination" placeholder={{field2.name}} ngx-google-places-autocomplete/>
     </div>
     <div class="input-holder">
       <i class="{{field3.icon}} {{field3.iconSide}}"></i>

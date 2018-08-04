@@ -92,4 +92,41 @@ export class DataService {
 
     return this.http.processGetRequest(urlRequest, {});
   }
+
+  /* 
+   * Function to get date from string of format 2018-09-01T07:55
+   * @param string data
+   * @return string will be in format Sat, 01 Sep 2018
+   */
+  getDateFromString(data: string): any {
+    // return new Date("2018-09-01T07:55").toUTCString().split(' ').slice(0, 4).join(' ');
+    return new Date(data).toString().split(' ').slice(0, 4).join(' ');
+  }
+
+  /* 
+   * Function to get time from string of format 2018-09-01T07:55
+   * @param string data
+   * @return string will be in format 07:55
+   */
+  getTimeFromString(data: string): any {
+    return new Date(data).toString().split(' ').slice(4, 5).join(' ').split(':').slice(0, 2).join(':')
+  }
+
+    /* 
+   * Function to get date and time from string of format 2018-09-01T07:55
+   * @param string data
+   * @return string will be in format Sat, 01 Sep 2018 07:55
+   */
+  getDateAndTimeFromString(data: string): any {
+    return this.getDateFromString(data) + " " + this.getTimeFromString(data);
+  }
+
+  /* 
+   * Function to get short date and time from string of format 2018-09-01T07:55
+   * @param string data
+   * @return string will be in format 01 Sep 07:55
+   */
+  getShortDateandTimeFromString(data: string): any {
+    return new Date(data).toUTCString().split(' ').slice(1, 3).join(' ') + " " + this.getTimeFromString(data);
+  }
 }

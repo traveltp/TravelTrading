@@ -19,6 +19,7 @@ export class SliderComponent implements OnInit {
   public showOverlay: boolean = true;
   public startDate: string;
   public endDate: string;
+  public city: string = "Bangalore";
   category: string;
   //destination: string = "Australia";
   // take images only with height greater than 700px
@@ -85,7 +86,7 @@ export class SliderComponent implements OnInit {
           end: this.endDate,
           location: placeLocation,
           destination: this.destination,
-          city: data.results[0].county.split(" ")[0],
+          city: this.city,
           country: data.results[0].country
         }
         this.data.getCardData(formData);
@@ -103,7 +104,8 @@ export class SliderComponent implements OnInit {
       if (data != null && data.title != null) {
         this.loading = true;
         this.smoothScroll.smoothScrollToTop();
-        this.destination = data.title;
+        //this.destination = data.title;
+        this.city = data.title.split(" -")[0];
 
         // Send details from the clicked card
         var latitude: string = data.latitude;

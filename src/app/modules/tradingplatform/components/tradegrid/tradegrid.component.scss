@@ -13,7 +13,7 @@
 }
 
 .large-layout-glass {
-  width: 68%;
+  width: 100%;
   height: 90%;
   position: absolute;
   top: 80px;
@@ -21,7 +21,7 @@
 
   .pane {
     opacity: 0.5;
-    width:96%;
+    width:100%;
     height:100%;
     display:inline-block;
     border-radius: 10px;
@@ -52,7 +52,7 @@
 
   .pane {
     opacity: 0.5;
-    width:96%;
+    width:100%;
     height:100%;
     border-radius: 10px;
     display:inline-block;
@@ -99,3 +99,78 @@ input {
     opacity: 0.8;
     border-radius: 5px;
   }
+  ul {
+    z-index: 1;
+    opacity: 0.8;
+    list-style-type: none;
+    margin-left: 31.4em;
+    margin-top: 0.7em;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+    width: 69%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111111;
+}
+table {  
+  color: #333; /* Lighten up font color */
+  font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+  width: 640px; 
+  border-collapse: 
+  collapse; border-spacing: 0; 
+}
+
+td, th { border: 1px solid #CCC; height: 30px; } /* Make cells a bit taller */
+
+th {  
+  background: #F3F3F3; /* Light grey background */
+  font-weight: bold; /* Make sure they're bold */
+}
+
+td {  
+  background: #FAFAFA; /* Lighter grey background */
+  text-align: center; /* Center our text */
+}
+.button2 {
+  //background-color: white; 
+  //color: black; 
+  //border: 2px solid #008CBA;
+  opacity: 0.8;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+  opacity: 1;
+}
+.button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 33px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 9px;
+  margin-left: 42em;
+  -webkit-transition-duration: 0.3s; /* Safari */
+  transition-duration: 0.3s;
+  cursor: pointer;
+  outline: none;
+  border-radius: 0.313em;
+}

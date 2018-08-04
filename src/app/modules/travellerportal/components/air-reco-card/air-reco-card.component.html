@@ -1,0 +1,46 @@
+<div class="reco">
+  <div class="boundInfo">
+    <div class="outbound">
+      <div class="airlineLogo" [ngStyle]="{'background-image': 'url(assets/logos/air/' + outbounds.flights[0].marketing_airline + '.png)'}"></div>
+      <div class="listClass">
+        <div *ngFor="let outboundFlight of outbounds.flights">
+          <div class="timeSection">
+            <span>{{data.getShortDateandTimeFromString(outboundFlight.departs_at)}}</span> --
+            <span>{{data.getShortDateandTimeFromString(outboundFlight.arrives_at)}}</span>
+          </div>
+          <div class="terminalSection">
+            <span>{{outboundFlight.origin.airport}} {{outboundFlight.origin.terminal != null?'Terminal ' + outboundFlight.origin.terminal:""}}</span>
+            --
+            <span>{{outboundFlight.destination.airport}} {{outboundFlight.destination.terminal != null?'Terminal ' + outboundFlight.destination.terminal:""}}</span>
+          </div>
+          <div class="flightSection"> {{outboundFlight.flight_number}}</div>
+          <hr class="thinBorder" />
+        </div>
+      </div>
+      <div class="duration">Duration: {{outbounds.duration}}</div>
+    </div>
+    <hr class="thinBorder" />
+    <div class="inbound">
+      <div class="airlineLogo" [ngStyle]="{'background-image': 'url(assets/logos/air/' + inbounds.flights[0].marketing_airline + '.png)'}"></div>
+      <div class="listClass">
+        <div *ngFor="let inboundFlight of inbounds.flights">
+          <div class="timeSection">
+            <span>{{data.getShortDateandTimeFromString(inboundFlight.departs_at)}}</span> --
+            <span>{{data.getShortDateandTimeFromString(inboundFlight.arrives_at)}}</span>
+          </div>
+          <div class="terminalSection">
+            <span>{{inboundFlight.origin.airport}} {{inboundFlight.origin.terminal != null?'Terminal ' + inboundFlight.origin.terminal:""}}</span>
+            --
+            <span>{{inboundFlight.destination.airport}} {{inboundFlight.destination.terminal != null?'Terminal ' + inboundFlight.destination.terminal:""}}</span>
+          </div>
+          <div class="flightSection">{{inboundFlight.flight_number}}</div>
+          <hr class="thinBorder" />
+        </div>
+      </div>
+      <div class="duration">Duration: {{inbounds.duration}}</div>
+    </div>
+  </div>
+  <div class="fare">
+    {{airReco.fare.total_price}} {{currency}}
+  </div>
+</div>

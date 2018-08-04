@@ -17,60 +17,67 @@ export class BookmarksHomeComponent implements OnInit {
     const cardsMockData: any =
       [
         {
-          latitude: "12.9716",
-          longitude: "77.5946",
+          latitude: "52.3702",
+          longitude: "4.8952",
           category: "festivals",
           image: "assets/images/bookmarks/bangalore_festivals.jpg",
-          title: 'Bangalore - Festivals',
-          text: "Click here to view all the upcoming Festivals in Bangalore"
+          title: 'Amsterdam - Festivals',
+          text: "Click here to view all the upcoming Festivals in Amsterdam",
+          country: "Netherlands"
         },
         {
-          latitude: "12.9716",
-          longitude: "77.5946",
+          latitude: "51.5074",
+          longitude: "0.1278",
           category: "concerts",
           image: "assets/images/bookmarks/bangalore_concerts.jpg",
-          title: 'Bangalore - Concerts',
-          text: "Click here to view all the upcoming Concerts in Bangalore"
+          title: 'London - Concerts',
+          text: "Click here to view all the upcoming Concerts in London",
+          country: "England"
         },
         {
-          latitude: "12.9716",
-          longitude: "77.5946",
+          latitude: "43.6532",
+          longitude: "79.3832",
           category: "sports",
           image: "assets/images/bookmarks/bangalore_sports.jpg",
-          title: 'Bangalore - Sports',
-          text: "Click here to view all the upcoming Sports Events in Bangalore"
+          title: 'Toronto - Sports',
+          text: "Click here to view all the upcoming Sports Events in Toronto",
+          country: "Canada"
         },
         {
-          latitude: "51.5074",
-          longitude: "0.1278",
+          latitude: "35.6895",
+          longitude: "139.6917",
           category: "concerts",
           image: "assets/images/bookmarks/london_concerts.jpg",
-          title: 'London - Concerts',
-          text: "Click here to view all the upcoming Concerts in London"
+          title: 'Tokyo - Concerts',
+          text: "Click here to view all the upcoming Concerts in Tokyo",
+          country: "Japan"
         },
         {
-          latitude: "51.5074",
-          longitude: "0.1278",
+          latitude: "52.5200",
+          longitude: "13.4050",
           category: "festivals",
           image: "assets/images/bookmarks/london_festivals.jpg",
-          title: 'London - Festivals',
-          text: "Click here to view all the upcoming Festivals in London"
+          title: 'Berlin - Festivals',
+          text: "Click here to view all the upcoming Festivals in Berlin",
+          country: "Germany"
         },
         {
-          latitude: "48.8566",
-          longitude: "2.3522",
+          latitude: "33.8688",
+          longitude: "151.2093",
           category: "sports",
           image: "assets/images/bookmarks/paris_sports.jpg",
-          title: 'Paris - Sports',
-          text: "Click here to view all the upcoming Sports Events in Paris"
+          title: 'Sydney - Sports',
+          text: "Click here to view all the upcoming Sports Events in Sydney",
+          country: "Australia"
         },
         {
-          latitude: "48.8566",
-          longitude: "2.3522",
+          latitude: "37.7749",
+          longitude: "122.4194",
           category: "festivals",
           image: "assets/images/bookmarks/paris_festivals.jpg",
-          title: 'Paris - Festivals',
-          text: "Click here to view all the upcoming Festivals in Paris"
+          title: 'San Francisco - Festivals',
+          text: "Click here to view all the upcoming Festivals in San Francisco",
+          country: "United States of America"
         },
         {
           latitude: "48.8566",
@@ -78,7 +85,8 @@ export class BookmarksHomeComponent implements OnInit {
           category: "concerts",
           image: "assets/images/bookmarks/paris_concerts.jpg",
           title: 'Paris - Concerts',
-          text: "Click here to view all the upcoming Concerts in Paris"
+          text: "Click here to view all the upcoming Concerts in Paris",
+          country: "England"
         },
         {
           latitude: "50.1109",
@@ -86,15 +94,17 @@ export class BookmarksHomeComponent implements OnInit {
           category: "festivals",
           image: "assets/images/bookmarks/frankfurt_festivals.jpg",
           title: 'Frankfurt - Festivals',
-          text: "Click here to view all the upcoming Festivals in Frankfurt"
+          text: "Click here to view all the upcoming Festivals in Frankfurt",
+          country: "Germany"
         },
         {
-          latitude: "50.1109",
-          longitude: "8.6821",
+          latitude: "41.9028",
+          longitude: "12.4964",
           category: "concerts",
           image: "assets/images/bookmarks/frankfurt_concerts.jpg",
-          title: 'Frankfurt - Concerts',
-          text: "Click here to view all the upcoming Concerts in Frankfurt"
+          title: 'Rome - Concerts',
+          text: "Click here to view all the upcoming Concerts in Rome",
+          country: "Italy"
         }
       ];
 
